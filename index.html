@@ -1,1 +1,1399 @@
+<!DOCTYPE html>
 
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "surface-tint": "#c0c1ff", "on-surface-variant": "#c7c4d7", "on-tertiary-fixed-variant": "#653e00", "secondary-container": "#00a572", "tertiary-fixed-dim": "#ffb95f", "primary-fixed-dim": "#c0c1ff", "on-background": "#dae2fd", "on-secondary-container": "#00311f", "secondary-fixed": "#6ffbbe", "on-secondary": "#003824", "tertiary": "#ffb95f", "surface": "#0b1326", "primary-container": "#8083ff", "on-tertiary-fixed": "#2a1700", "on-surface": "#dae2fd", "secondary": "#4edea3", "background": "#0b1326", "on-error": "#690005", "on-primary-fixed": "#07006c", "outline": "#908fa0", "primary-fixed": "#e1e0ff", "error": "#ffb4ab", "surface-container": "#171f33", "surface-container-low": "#131b2e", "surface-dim": "#0b1326", "surface-variant": "#2d3449", "inverse-surface": "#dae2fd", "secondary-fixed-dim": "#4edea3", "on-primary": "#1000a9", "tertiary-fixed": "#ffddb8", "on-secondary-fixed": "#002113", "inverse-primary": "#494bd6", "on-tertiary-container": "#3e2400", "primary": "#c0c1ff", "surface-container-highest": "#2d3449", "on-error-container": "#ffdad6", "surface-container-high": "#222a3d", "inverse-on-surface": "#283044", "tertiary-container": "#ca8100", "on-tertiary": "#472a00", "on-secondary-fixed-variant": "#005236", "outline-variant": "#464554", "error-container": "#93000a", "surface-container-lowest": "#060e20", "surface-bright": "#31394d", "on-primary-fixed-variant": "#2f2ebe", "on-primary-container": "#0d0096" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-xl": "2.5rem", "gutter": "1rem", "space-md": "1rem", "space-lg": "1.5rem", "margin": "1rem", "margin-tablet": "2rem", "margin-desktop": "3rem", "gutter-desktop": "1.5rem", "space-sm": "0.5rem", "space-xs": "0.25rem" }, "fontFamily": { "headline-md": ["Plus Jakarta Sans"], "headline-sm": ["Plus Jakarta Sans"], "body-sm": ["Inter"], "headline-lg-mobile": ["Plus Jakarta Sans"], "label-md": ["Inter"], "label-lg": ["Inter"], "display-lg": ["Plus Jakarta Sans"], "display-lg-mobile": ["Plus Jakarta Sans"], "label-sm": ["Inter"], "body-lg": ["Inter"], "body-md": ["Inter"], "headline-lg": ["Plus Jakarta Sans"] }, "fontSize": { "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "headline-sm": ["18px", { "lineHeight": "26px", "fontWeight": "600" }], "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }], "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }], "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }], "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }], "display-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "500" }], "body-lg": ["16px", { "lineHeight": "26px", "fontWeight": "400" }], "body-md": ["14px", { "lineHeight": "22px", "fontWeight": "400" }], "headline-lg": ["30px", { "lineHeight": "38px", "letterSpacing": "-0.01em", "fontWeight": "700" }] } } } }</script></head><body class="bg-surface text-on-surface font-body-md text-body-md min-h-screen flex flex-col antialiased selection:bg-primary-container selection:text-on-primary-container"><main class="flex-1 flex flex-col relative w-full pt-safe pb-safe bg-surface"><div class="flex flex-col w-full text-on-surface">
+<!-- TOP APP STEPPER HEADER (Dynamic step tracker) -->
+<header class="w-full px-gutter py-space-sm flex flex-col gap-space-xs bg-surface-container-lowest transition-all duration-300" id="onboardingHeader">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<button aria-label="Previous step" class="w-8 h-8 rounded-full bg-surface-container-high text-on-surface flex items-center justify-center transition-transform active:scale-95 invisible" id="btnBack" type="button">
+<span class="material-symbols-outlined text-[18px]">arrow_back</span>
+</button>
+<span class="font-label-md text-label-md text-primary font-semibold tracking-wide uppercase" id="stepCounterLabel">
+          Step 1 of 7
+        </span>
+</div>
+<button class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface py-1 px-space-xs transition-colors" id="btnSkip" type="button">
+        Skip intro
+      </button>
+</div>
+<!-- 7-Segment Progress Track -->
+<div class="w-full grid grid-cols-7 gap-1.5 pt-1">
+<div class="h-1 rounded-full bg-primary transition-all duration-300" id="prog-1"></div>
+<div class="h-1 rounded-full bg-surface-container-high transition-all duration-300" id="prog-2"></div>
+<div class="h-1 rounded-full bg-surface-container-high transition-all duration-300" id="prog-3"></div>
+<div class="h-1 rounded-full bg-surface-container-high transition-all duration-300" id="prog-4"></div>
+<div class="h-1 rounded-full bg-surface-container-high transition-all duration-300" id="prog-5"></div>
+<div class="h-1 rounded-full bg-surface-container-high transition-all duration-300" id="prog-6"></div>
+<div class="h-1 rounded-full bg-surface-container-high transition-all duration-300" id="prog-7"></div>
+</div>
+</header>
+<!-- SCREEN VIEWPORT / SLIDES CONTAINER -->
+<div class="w-full flex-1 flex flex-col px-gutter pb-space-lg pt-space-sm overflow-hidden">
+<!-- STEP 1: WELCOME SCREEN -->
+<section class="step-card flex flex-col items-center text-center gap-space-md py-space-sm w-full" id="step-1">
+<!-- Ambient Visual Glow & Logo Container -->
+<div class="relative flex flex-col items-center justify-center pt-space-md pb-space-sm w-full">
+<div class="w-48 h-48 rounded-full bg-primary-container/20 blur-2xl absolute -top-4 pointer-events-none"></div>
+<div class="relative z-10 w-full max-w-[240px] px-space-sm py-space-xs rounded-xl bg-surface-container-low flex items-center justify-center shadow-lg">
+<img alt="PrepZen Brand Logo" class="h-10 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1UH8qwl5fZKtvuuRAZgIfIkjQ21NV-biL1hvx0ytaF5DQ4E54Q63PgldultxmSwZ2EGc66WOG_MUB-To-R6N95Kic1eEE8ZJsRvDKknzeRr7irmsU9wwRLQpAJ4s3QXPuU-ibSn0D0oVCqg3G5KxCiimGUAvX7cEp_2oMnW4ILTiBdpvKyP1hObOFsXSDay6gQvLYJvOMmx3lHjSY1WApdRic7WygwgDFzs4jzqoouejgwwbS2mTIQSiFg"/>
+</div>
+</div>
+<!-- Hero Visual Motif & Zen Badge -->
+<div class="w-full max-w-sm rounded-2xl bg-surface-container-low p-space-md flex flex-col items-center gap-space-sm shadow-md">
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-highest text-secondary text-label-sm font-label-sm">
+<span class="material-symbols-outlined text-sm text-secondary" style="font-variation-settings: 'FILL' 1;">verified</span>
+          Calm, Focused &amp; Systematic
+        </div>
+<h1 class="font-display-lg-mobile text-display-lg-mobile text-on-surface font-bold tracking-tight mt-1">
+          Welcome to <span class="text-primary-fixed-dim">PrepZen</span>
+</h1>
+<p class="font-headline-sm text-headline-sm text-secondary font-semibold">
+          Study smarter. Stay ahead.
+        </p>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xs leading-relaxed">
+          Build a preparation system around your goals, your stream, and your pace.
+        </p>
+<!-- Quick 3-Pillar Highlight Grid -->
+<div class="grid grid-cols-3 gap-2 w-full mt-2">
+<div class="flex flex-col items-center p-2 rounded-lg bg-surface-container text-center">
+<span class="material-symbols-outlined text-primary mb-1">psychology</span>
+<span class="font-label-sm text-label-sm text-on-surface">Zero Stress</span>
+</div>
+<div class="flex flex-col items-center p-2 rounded-lg bg-surface-container text-center">
+<span class="material-symbols-outlined text-secondary mb-1">timer</span>
+<span class="font-label-sm text-label-sm text-on-surface">Deep Focus</span>
+</div>
+<div class="flex flex-col items-center p-2 rounded-lg bg-surface-container text-center">
+<span class="material-symbols-outlined text-tertiary mb-1">track_changes</span>
+<span class="font-label-sm text-label-sm text-on-surface">High Yield</span>
+</div>
+</div>
+</div>
+<!-- Action Cluster -->
+<div class="w-full max-w-sm flex flex-col gap-3 mt-auto pt-space-sm">
+<button class="w-full py-3.5 px-space-md rounded-xl bg-primary text-on-primary font-label-lg text-label-lg font-semibold flex items-center justify-center gap-2 shadow-lg transition-transform active:scale-[0.98]" onclick="goToStep(2)" type="button">
+<span>Get Started</span>
+<span class="material-symbols-outlined text-lg">arrow_forward</span>
+</button>
+<button class="py-2 text-on-surface-variant hover:text-on-surface font-label-md text-label-md text-center transition-colors" type="button">
+          Already have an account? <span class="text-primary-fixed-dim font-semibold">Log in</span>
+</button>
+</div>
+</section>
+<!-- STEP 2: CLASS SELECTION -->
+<section class="step-card hidden flex-col gap-space-md w-full max-w-sm mx-auto" id="step-2">
+<div class="flex flex-col gap-1">
+<span class="text-label-sm font-label-sm text-primary uppercase font-bold tracking-wider">Foundation</span>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">What class are you in?</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">We customize chapter weights according to your current academic year.</p>
+</div>
+<!-- Class Toggles -->
+<div class="flex flex-col gap-3 mt-space-xs" id="classSelectorGroup">
+<!-- Class 11 -->
+<div class="cursor-pointer p-space-md rounded-xl bg-surface-container-low flex items-center justify-between transition-all active:scale-[0.99] shadow-sm" id="opt-class-11" onclick="selectClass('11')">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-on-surface font-headline-sm">
+              11
+            </div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface">Class 11</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Core concepts, foundational mock cadence</span>
+</div>
+</div>
+<div class="radio-indicator w-6 h-6 rounded-full bg-surface-container-highest flex items-center justify-center text-transparent">
+<span class="material-symbols-outlined text-sm font-bold">check</span>
+</div>
+</div>
+<!-- Class 12 (Default Selected) -->
+<div class="cursor-pointer p-space-md rounded-xl bg-primary-container/20 shadow-md flex items-center justify-between transition-all active:scale-[0.99]" id="opt-class-12" onclick="selectClass('12')">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-primary text-on-primary flex items-center justify-center font-headline-sm font-bold">
+              12
+            </div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Class 12</span>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-bold">Boards Active</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">High-stakes syllabus, rapid revisions</span>
+</div>
+</div>
+<div class="radio-indicator w-6 h-6 rounded-full bg-secondary text-on-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-sm font-bold">check</span>
+</div>
+</div>
+</div>
+<!-- Tactical Micro-Insight -->
+<div class="p-space-sm rounded-xl bg-surface-container-lowest flex items-start gap-2.5 mt-2">
+<span class="material-symbols-outlined text-tertiary text-lg">lightbulb</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          Class 12 schedules include integrated revision tracks for Grade 11 prerequisites.
+        </p>
+</div>
+<!-- Action Button -->
+<div class="w-full mt-auto pt-space-sm">
+<button class="w-full py-3.5 px-space-md rounded-xl bg-primary text-on-primary font-label-lg text-label-lg font-semibold flex items-center justify-center gap-2 shadow-lg transition-transform active:scale-[0.98]" onclick="goToStep(3)" type="button">
+<span>Continue to Stream</span>
+<span class="material-symbols-outlined text-lg">arrow_forward</span>
+</button>
+</div>
+</section>
+<!-- STEP 3: STREAM SELECTION -->
+<section class="step-card hidden flex-col gap-space-md w-full max-w-sm mx-auto" id="step-3">
+<div class="flex flex-col gap-1">
+<span class="text-label-sm font-label-sm text-primary uppercase font-bold tracking-wider">Academic Track</span>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">What are you studying?</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Choose your major subject combination.</p>
+</div>
+<!-- 4 Tactile Stream Cards -->
+<div class="flex flex-col gap-2.5" id="streamSelectorGroup">
+<!-- PCM (Selected) -->
+<div class="cursor-pointer p-space-sm rounded-xl bg-primary-container/20 shadow-md flex items-center justify-between transition-all active:scale-[0.99]" id="stream-PCM" onclick="selectStream('PCM')">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-xl">functions</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">PCM</span>
+<span class="px-1.5 py-0.2 rounded bg-tertiary-container/30 text-tertiary font-label-sm text-[10px] uppercase font-bold">Engineering</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Physics • Chemistry • Mathematics</span>
+</div>
+</div>
+<div class="stream-check w-6 h-6 rounded-full bg-secondary text-on-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-sm font-bold">check</span>
+</div>
+</div>
+<!-- PCB -->
+<div class="cursor-pointer p-space-sm rounded-xl bg-surface-container-low flex items-center justify-between transition-all active:scale-[0.99] shadow-sm" id="stream-PCB" onclick="selectStream('PCB')">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-xl">biotech</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">PCB</span>
+<span class="px-1.5 py-0.2 rounded bg-surface-container text-on-surface-variant font-label-sm text-[10px] uppercase">Medical</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Physics • Chemistry • Biology</span>
+</div>
+</div>
+<div class="stream-check w-6 h-6 rounded-full bg-surface-container-highest flex items-center justify-center text-transparent">
+<span class="material-symbols-outlined text-sm font-bold">check</span>
+</div>
+</div>
+<!-- PCMB -->
+<div class="cursor-pointer p-space-sm rounded-xl bg-surface-container-low flex items-center justify-between transition-all active:scale-[0.99] shadow-sm" id="stream-PCMB" onclick="selectStream('PCMB')">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-xl">hub</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">PCMB</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Physics • Chem • Math • Biology</span>
+</div>
+</div>
+<div class="stream-check w-6 h-6 rounded-full bg-surface-container-highest flex items-center justify-center text-transparent">
+<span class="material-symbols-outlined text-sm font-bold">check</span>
+</div>
+</div>
+<!-- Humanities -->
+<div class="cursor-pointer p-space-sm rounded-xl bg-surface-container-low flex items-center justify-between transition-all active:scale-[0.99] shadow-sm" id="stream-HUMANITIES" onclick="selectStream('HUMANITIES')">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-xl">menu_book</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">Humanities</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">History • Pol. Sci • Geo • Economics</span>
+</div>
+</div>
+<div class="stream-check w-6 h-6 rounded-full bg-surface-container-highest flex items-center justify-center text-transparent">
+<span class="material-symbols-outlined text-sm font-bold">check</span>
+</div>
+</div>
+</div>
+<!-- Action Button -->
+<div class="w-full mt-auto pt-space-sm">
+<button class="w-full py-3.5 px-space-md rounded-xl bg-primary text-on-primary font-label-lg text-label-lg font-semibold flex items-center justify-center gap-2 shadow-lg transition-transform active:scale-[0.98]" onclick="goToStep(4)" type="button">
+<span>Confirm Academic Stream</span>
+<span class="material-symbols-outlined text-lg">arrow_forward</span>
+</button>
+</div>
+</section>
+<!-- STEP 4: EXAM GOALS (MULTI-SELECT) -->
+<section class="step-card hidden flex-col gap-space-md w-full max-w-sm mx-auto" id="step-4">
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="text-label-sm font-label-sm text-primary uppercase font-bold tracking-wider">Target Milestones</span>
+<span class="text-label-sm font-label-sm text-secondary font-semibold">Multi-select enabled</span>
+</div>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">What are you preparing for?</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Select all that apply to tailor your question bank balance.</p>
+</div>
+<!-- Multi-select list -->
+<div class="flex flex-col gap-2.5" id="examGoalsList">
+<!-- 1. Board Exams (Selected) -->
+<div class="cursor-pointer p-3 rounded-xl bg-primary-container/20 shadow-sm flex items-center justify-between transition-all" id="goal-board" onclick="toggleGoal(this, 'board')">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-lg">school</span>
+</div>
+<div>
+<div class="font-label-lg text-label-lg text-on-surface font-semibold">Board Exams</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">CBSE / State Boards scoring focus</div>
+</div>
+</div>
+<div class="check-box w-5 h-5 rounded-md bg-secondary text-on-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-sm font-bold">check</span>
+</div>
+</div>
+<!-- 2. JEE Main (Selected) -->
+<div class="cursor-pointer p-3 rounded-xl bg-primary-container/20 shadow-sm flex items-center justify-between transition-all" id="goal-jee" onclick="toggleGoal(this, 'jee')">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-lg">rocket_launch</span>
+</div>
+<div>
+<div class="font-label-lg text-label-lg text-on-surface font-semibold">JEE Main</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Speed, numericals &amp; negative-marking drills</div>
+</div>
+</div>
+<div class="check-box w-5 h-5 rounded-md bg-secondary text-on-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-sm font-bold">check</span>
+</div>
+</div>
+<!-- 3. NEET (Unselected) -->
+<div class="cursor-pointer p-3 rounded-xl bg-surface-container-low shadow-sm flex items-center justify-between transition-all" id="goal-neet" onclick="toggleGoal(this, 'neet')">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-surface-container-highest flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-lg">medical_services</span>
+</div>
+<div>
+<div class="font-label-lg text-label-lg text-on-surface font-semibold">NEET</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">NCERT line-by-line bio &amp; speed physics</div>
+</div>
+</div>
+<div class="check-box w-5 h-5 rounded-md bg-surface-container-highest text-transparent flex items-center justify-center">
+<span class="material-symbols-outlined text-sm font-bold">check</span>
+</div>
+</div>
+<!-- 4. School Exams (Selected) -->
+<div class="cursor-pointer p-3 rounded-xl bg-primary-container/20 shadow-sm flex items-center justify-between transition-all" id="goal-school" onclick="toggleGoal(this, 'school')">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-lg">quiz</span>
+</div>
+<div>
+<div class="font-label-lg text-label-lg text-on-surface font-semibold">School Exams</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Weekly unit tests &amp; term assessments</div>
+</div>
+</div>
+<div class="check-box w-5 h-5 rounded-md bg-secondary text-on-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-sm font-bold">check</span>
+</div>
+</div>
+<!-- 5. Other Competitive Exams (Selected - Triggers Step 5) -->
+<div class="cursor-pointer p-3 rounded-xl bg-primary-container/20 shadow-sm flex items-center justify-between transition-all" id="goal-other" onclick="toggleGoal(this, 'other')">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-lg">military_tech</span>
+</div>
+<div>
+<div class="font-label-lg text-label-lg text-on-surface font-semibold">Other Competitive Exams</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">CUET, NDA, Olympiads, etc.</div>
+</div>
+</div>
+<div class="check-box w-5 h-5 rounded-md bg-secondary text-on-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-sm font-bold">check</span>
+</div>
+</div>
+</div>
+<!-- Action Button -->
+<div class="w-full mt-auto pt-space-sm">
+<button class="w-full py-3.5 px-space-md rounded-xl bg-primary text-on-primary font-label-lg text-label-lg font-semibold flex items-center justify-center gap-2 shadow-lg transition-transform active:scale-[0.98]" onclick="goToStep(5)" type="button">
+<span>Continue</span>
+<span class="material-symbols-outlined text-lg">arrow_forward</span>
+</button>
+</div>
+</section>
+<!-- STEP 5: CONDITIONAL OTHER COMPETITIVE EXAMS -->
+<section class="step-card hidden flex-col gap-space-md w-full max-w-sm mx-auto" id="step-5">
+<div class="flex flex-col gap-1">
+<div class="inline-flex items-center gap-1 text-label-sm font-label-sm text-tertiary">
+<span class="material-symbols-outlined text-sm">tune</span>
+<span>Target Alignment</span>
+</div>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">Which competitive exams?</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Select additional exam patterns to load specialized mock syllabi.</p>
+</div>
+<!-- 2-Column Grid for Competitive Exam Badges -->
+<div class="grid grid-cols-2 gap-2.5" id="subExamsGrid">
+<!-- UPSC -->
+<div class="cursor-pointer p-3 rounded-xl bg-surface-container-low shadow-sm flex items-center justify-between" onclick="toggleSubExam(this, 'UPSC')">
+<span class="font-label-md text-label-md text-on-surface">UPSC / Civil</span>
+<div class="w-5 h-5 rounded-md bg-surface-container-highest text-transparent flex items-center justify-center">
+<span class="material-symbols-outlined text-xs">check</span>
+</div>
+</div>
+<!-- CUET (Selected) -->
+<div class="cursor-pointer p-3 rounded-xl bg-primary-container/20 shadow-sm flex items-center justify-between" onclick="toggleSubExam(this, 'CUET')">
+<span class="font-label-md text-label-md text-on-surface font-semibold">CUET</span>
+<div class="w-5 h-5 rounded-md bg-secondary text-on-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-xs font-bold">check</span>
+</div>
+</div>
+<!-- CLAT -->
+<div class="cursor-pointer p-3 rounded-xl bg-surface-container-low shadow-sm flex items-center justify-between" onclick="toggleSubExam(this, 'CLAT')">
+<span class="font-label-md text-label-md text-on-surface">CLAT</span>
+<div class="w-5 h-5 rounded-md bg-surface-container-highest text-transparent flex items-center justify-center">
+<span class="material-symbols-outlined text-xs">check</span>
+</div>
+</div>
+<!-- NDA -->
+<div class="cursor-pointer p-3 rounded-xl bg-surface-container-low shadow-sm flex items-center justify-between" onclick="toggleSubExam(this, 'NDA')">
+<span class="font-label-md text-label-md text-on-surface">NDA</span>
+<div class="w-5 h-5 rounded-md bg-surface-container-highest text-transparent flex items-center justify-center">
+<span class="material-symbols-outlined text-xs">check</span>
+</div>
+</div>
+<!-- NIFT -->
+<div class="cursor-pointer p-3 rounded-xl bg-surface-container-low shadow-sm flex items-center justify-between" onclick="toggleSubExam(this, 'NIFT')">
+<span class="font-label-md text-label-md text-on-surface">NIFT</span>
+<div class="w-5 h-5 rounded-md bg-surface-container-highest text-transparent flex items-center justify-center">
+<span class="material-symbols-outlined text-xs">check</span>
+</div>
+</div>
+<!-- Other -->
+<div class="cursor-pointer p-3 rounded-xl bg-surface-container-low shadow-sm flex items-center justify-between" onclick="toggleSubExam(this, 'Other')">
+<span class="font-label-md text-label-md text-on-surface">Other National</span>
+<div class="w-5 h-5 rounded-md bg-surface-container-highest text-transparent flex items-center justify-center">
+<span class="material-symbols-outlined text-xs">check</span>
+</div>
+</div>
+</div>
+<!-- Live Sync Status Banner -->
+<div class="p-3 rounded-xl bg-surface-container flex items-center gap-3 mt-1">
+<div class="w-8 h-8 rounded-full bg-secondary-container/40 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-base">sync_saved_locally</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-semibold">1 Extra Exam Synced</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">CUET domain test banks prioritized</span>
+</div>
+</div>
+<!-- Action Button -->
+<div class="w-full mt-auto pt-space-sm">
+<button class="w-full py-3.5 px-space-md rounded-xl bg-primary text-on-primary font-label-lg text-label-lg font-semibold flex items-center justify-center gap-2 shadow-lg transition-transform active:scale-[0.98]" onclick="goToStep(6)" type="button">
+<span>Continue to Study Habits</span>
+<span class="material-symbols-outlined text-lg">arrow_forward</span>
+</button>
+</div>
+</section>
+<!-- STEP 6: STUDY CHALLENGES (MULTI-SELECT BADGES) -->
+<section class="step-card hidden flex-col gap-space-md w-full max-w-sm mx-auto" id="step-6">
+<div class="flex flex-col gap-1">
+<span class="text-label-sm font-label-sm text-primary uppercase font-bold tracking-wider">Mindset &amp; Bottlenecks</span>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">What usually makes studying difficult?</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">We adjust timer intervals, flashcard prompts, and revision streaks to match.</p>
+</div>
+<!-- Badges Cloud / Tappable Tiles -->
+<div class="flex flex-wrap gap-2" id="challengesCloud">
+<!-- 1. Time Management (Selected) -->
+<button class="challenge-pill px-3.5 py-2.5 rounded-xl bg-primary-container/20 text-on-surface flex items-center gap-2 text-label-md font-label-md font-semibold transition-all" onclick="toggleChallenge(this)" type="button">
+<span class="material-symbols-outlined text-secondary text-base font-bold">check</span>
+<span>Time Management</span>
+</button>
+<!-- 2. Revision (Selected) -->
+<button class="challenge-pill px-3.5 py-2.5 rounded-xl bg-primary-container/20 text-on-surface flex items-center gap-2 text-label-md font-label-md font-semibold transition-all" onclick="toggleChallenge(this)" type="button">
+<span class="material-symbols-outlined text-secondary text-base font-bold">check</span>
+<span>Revision &amp; Retention</span>
+</button>
+<!-- 3. Procrastination -->
+<button class="challenge-pill px-3.5 py-2.5 rounded-xl bg-surface-container-low text-on-surface-variant flex items-center gap-2 text-label-md font-label-md transition-all" onclick="toggleChallenge(this)" type="button">
+<span class="material-symbols-outlined text-base opacity-40">add</span>
+<span>Procrastination</span>
+</button>
+<!-- 4. Staying Consistent -->
+<button class="challenge-pill px-3.5 py-2.5 rounded-xl bg-surface-container-low text-on-surface-variant flex items-center gap-2 text-label-md font-label-md transition-all" onclick="toggleChallenge(this)" type="button">
+<span class="material-symbols-outlined text-base opacity-40">add</span>
+<span>Staying Consistent</span>
+</button>
+<!-- 5. Understanding Difficult Topics -->
+<button class="challenge-pill px-3.5 py-2.5 rounded-xl bg-surface-container-low text-on-surface-variant flex items-center gap-2 text-label-md font-label-md transition-all" onclick="toggleChallenge(this)" type="button">
+<span class="material-symbols-outlined text-base opacity-40">add</span>
+<span>Understanding Difficult Topics</span>
+</button>
+<!-- 6. Solving Numericals -->
+<button class="challenge-pill px-3.5 py-2.5 rounded-xl bg-surface-container-low text-on-surface-variant flex items-center gap-2 text-label-md font-label-md transition-all" onclick="toggleChallenge(this)" type="button">
+<span class="material-symbols-outlined text-base opacity-40">add</span>
+<span>Solving Numericals</span>
+</button>
+<!-- 7. Exam Anxiety -->
+<button class="challenge-pill px-3.5 py-2.5 rounded-xl bg-surface-container-low text-on-surface-variant flex items-center gap-2 text-label-md font-label-md transition-all" onclick="toggleChallenge(this)" type="button">
+<span class="material-symbols-outlined text-base opacity-40">add</span>
+<span>Exam Anxiety</span>
+</button>
+</div>
+<!-- Empathetic Note Card -->
+<div class="p-space-sm rounded-xl bg-surface-container flex items-center gap-2.5 mt-2">
+<span class="material-symbols-outlined text-secondary text-lg">spa</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">PrepZen introduces low-pressure micro-sessions when focus drops.</span>
+</div>
+<!-- Action Button -->
+<div class="w-full mt-auto pt-space-sm">
+<button class="w-full py-3.5 px-space-md rounded-xl bg-primary text-on-primary font-label-lg text-label-lg font-semibold flex items-center justify-center gap-2 shadow-lg transition-transform active:scale-[0.98]" onclick="goToStep(7)" type="button">
+<span>Build My System</span>
+<span class="material-symbols-outlined text-lg">magic_button</span>
+</button>
+</div>
+</section>
+<!-- STEP 7: PERSONALIZATION SUMMARY CARD (SPACE READY) -->
+<section class="step-card hidden flex-col gap-space-md w-full max-w-sm mx-auto" id="step-7">
+<!-- Zen Celebration Motif -->
+<div class="flex flex-col items-center text-center gap-1 pt-1">
+<div class="w-12 h-12 rounded-2xl bg-secondary-container/30 text-secondary flex items-center justify-center mb-1 shadow-md">
+<span class="material-symbols-outlined text-2xl font-bold" style="font-variation-settings: 'FILL' 1;">task_alt</span>
+</div>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface font-bold">
+          Your PrepZen space is ready.
+        </h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xs">
+          We’ll use this to personalize your preparation.
+        </p>
+</div>
+<!-- Architectural Summary Bento Card -->
+<div class="w-full rounded-2xl bg-surface-container-low p-space-md flex flex-col gap-space-sm shadow-xl relative overflow-hidden">
+<div class="w-32 h-32 rounded-full bg-primary/10 blur-xl absolute -right-6 -bottom-6 pointer-events-none"></div>
+<!-- Academic Tier Header -->
+<div class="flex items-center justify-between pb-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-xl">account_circle</span>
+<span class="font-label-lg text-label-lg font-bold text-on-surface">Student Profile</span>
+</div>
+<span class="px-3 py-1 rounded-full bg-primary-container/30 text-primary-fixed font-label-sm text-label-sm font-bold">
+            Class 12 • PCM
+          </span>
+</div>
+<!-- Goals Breakdown -->
+<div class="p-3 rounded-xl bg-surface-container flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase font-semibold">Active Targets</span>
+<span class="font-label-sm text-label-sm text-secondary font-bold">3 Focus Exams</span>
+</div>
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2 py-0.5 rounded-lg bg-surface-container-highest text-on-surface font-label-sm text-label-sm flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+              Board Exams
+            </span>
+<span class="px-2 py-0.5 rounded-lg bg-surface-container-highest text-on-surface font-label-sm text-label-sm flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+              JEE Main
+            </span>
+<span class="px-2 py-0.5 rounded-lg bg-surface-container-highest text-on-surface font-label-sm text-label-sm flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+              School Exams
+            </span>
+<span class="px-2 py-0.5 rounded-lg bg-surface-container-highest text-on-surface font-label-sm text-label-sm">
+              + CUET
+            </span>
+</div>
+</div>
+<!-- Focus Challenges Pill Group -->
+<div class="p-3 rounded-xl bg-surface-container flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase font-semibold">Focus Challenges</span>
+<span class="material-symbols-outlined text-tertiary text-base">tune</span>
+</div>
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2.5 py-1 rounded-full bg-tertiary-container/30 text-tertiary font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">schedule</span>
+              Time Management
+            </span>
+<span class="px-2.5 py-1 rounded-full bg-secondary-container/30 text-secondary font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">replay</span>
+              Revision
+            </span>
+</div>
+</div>
+<!-- Confidence Index Bar -->
+<div class="flex flex-col gap-1 pt-1">
+<div class="flex justify-between font-label-sm text-label-sm">
+<span class="text-on-surface-variant">Personalized Engine Ready</span>
+<span class="text-secondary font-semibold">100% Calibrated</span>
+</div>
+<div class="w-full h-1.5 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full w-full bg-secondary rounded-full"></div>
+</div>
+</div>
+</div>
+<!-- Primary Enter App CTA -->
+<div class="w-full mt-auto pt-space-sm">
+<button class="w-full py-4 px-space-md rounded-xl bg-secondary text-on-secondary font-label-lg text-label-lg font-bold flex items-center justify-center gap-2 shadow-xl hover:opacity-95 transition-transform active:scale-[0.98]" id="btnEnterWorkspace" onclick="enterWorkspace()" type="button">
+<span>Enter PrepZen</span>
+<span class="material-symbols-outlined text-xl font-bold">arrow_forward</span>
+</button>
+</div>
+</section>
+</div>
+<!-- Interactive Client-side Script -->
+<script>
+    let currentStep = 1;
+    const totalSteps = 7;
+
+    function updateStepperUI(step) {
+      document.getElementById('stepCounterLabel').innerText = `Step ${step} of ${totalSteps}`;
+      
+      const backBtn = document.getElementById('btnBack');
+      if (step === 1) {
+        backBtn.classList.add('invisible');
+      } else {
+        backBtn.classList.remove('invisible');
+      }
+
+      for (let i = 1; i <= totalSteps; i++) {
+        const seg = document.getElementById(`prog-${i}`);
+        if (seg) {
+          if (i <= step) {
+            seg.className = "h-1 rounded-full bg-primary transition-all duration-300";
+          } else {
+            seg.className = "h-1 rounded-full bg-surface-container-high transition-all duration-300";
+          }
+        }
+      }
+    }
+
+    function goToStep(step) {
+      if (step < 1 || step > totalSteps) return;
+
+      const currentCard = document.getElementById(`step-${currentStep}`);
+      if (currentCard) {
+        currentCard.classList.add('hidden');
+        currentCard.classList.remove('flex');
+      }
+
+      const nextCard = document.getElementById(`step-${step}`);
+      if (nextCard) {
+        nextCard.classList.remove('hidden');
+        nextCard.classList.add('flex');
+      }
+
+      currentStep = step;
+      updateStepperUI(currentStep);
+    }
+
+    document.getElementById('btnBack').addEventListener('click', () => {
+      if (currentStep > 1) {
+        goToStep(currentStep - 1);
+      }
+    });
+
+    document.getElementById('btnSkip').addEventListener('click', () => {
+      goToStep(7);
+    });
+
+    // Step 2 Selection Logic
+    function selectClass(grade) {
+      const card11 = document.getElementById('opt-class-11');
+      const card12 = document.getElementById('opt-class-12');
+      const r11 = card11.querySelector('.radio-indicator');
+      const r12 = card12.querySelector('.radio-indicator');
+
+      if (grade === '11') {
+        card11.className = "cursor-pointer p-space-md rounded-xl bg-primary-container/20 shadow-md flex items-center justify-between transition-all active:scale-[0.99]";
+        r11.className = "radio-indicator w-6 h-6 rounded-full bg-secondary text-on-secondary flex items-center justify-center";
+
+        card12.className = "cursor-pointer p-space-md rounded-xl bg-surface-container-low flex items-center justify-between transition-all active:scale-[0.99] shadow-sm";
+        r12.className = "radio-indicator w-6 h-6 rounded-full bg-surface-container-highest flex items-center justify-center text-transparent";
+      } else {
+        card12.className = "cursor-pointer p-space-md rounded-xl bg-primary-container/20 shadow-md flex items-center justify-between transition-all active:scale-[0.99]";
+        r12.className = "radio-indicator w-6 h-6 rounded-full bg-secondary text-on-secondary flex items-center justify-center";
+
+        card11.className = "cursor-pointer p-space-md rounded-xl bg-surface-container-low flex items-center justify-between transition-all active:scale-[0.99] shadow-sm";
+        r11.className = "radio-indicator w-6 h-6 rounded-full bg-surface-container-highest flex items-center justify-center text-transparent";
+      }
+    }
+
+    // Step 3 Selection Logic
+    function selectStream(stream) {
+      const streams = ['PCM', 'PCB', 'PCMB', 'HUMANITIES'];
+      streams.forEach(s => {
+        const el = document.getElementById(`stream-${s}`);
+        const check = el.querySelector('.stream-check');
+        if (s === stream) {
+          el.className = "cursor-pointer p-space-sm rounded-xl bg-primary-container/20 shadow-md flex items-center justify-between transition-all active:scale-[0.99]";
+          check.className = "stream-check w-6 h-6 rounded-full bg-secondary text-on-secondary flex items-center justify-center";
+        } else {
+          el.className = "cursor-pointer p-space-sm rounded-xl bg-surface-container-low flex items-center justify-between transition-all active:scale-[0.99] shadow-sm";
+          check.className = "stream-check w-6 h-6 rounded-full bg-surface-container-highest flex items-center justify-center text-transparent";
+        }
+      });
+    }
+
+    // Step 4 Multi-Select Goal Toggle
+    function toggleGoal(el, key) {
+      const box = el.querySelector('.check-box');
+      const isSelected = box.classList.contains('bg-secondary');
+      
+      if (isSelected) {
+        box.classList.remove('bg-secondary', 'text-on-secondary');
+        box.classList.add('bg-surface-container-highest', 'text-transparent');
+        el.classList.remove('bg-primary-container/20');
+        el.classList.add('bg-surface-container-low');
+      } else {
+        box.classList.add('bg-secondary', 'text-on-secondary');
+        box.classList.remove('bg-surface-container-highest', 'text-transparent');
+        el.classList.add('bg-primary-container/20');
+        el.classList.remove('bg-surface-container-low');
+      }
+    }
+
+    // Step 5 Sub-Exam Toggle
+    function toggleSubExam(el, name) {
+      const box = el.querySelector('div');
+      const isSelected = box.classList.contains('bg-secondary');
+
+      if (isSelected) {
+        box.className = "w-5 h-5 rounded-md bg-surface-container-highest text-transparent flex items-center justify-center";
+        el.className = "cursor-pointer p-3 rounded-xl bg-surface-container-low shadow-sm flex items-center justify-between";
+      } else {
+        box.className = "w-5 h-5 rounded-md bg-secondary text-on-secondary flex items-center justify-center";
+        el.className = "cursor-pointer p-3 rounded-xl bg-primary-container/20 shadow-sm flex items-center justify-between font-semibold";
+      }
+    }
+
+    // Step 6 Multi-Select Challenge Badges
+    function toggleChallenge(btn) {
+      const icon = btn.querySelector('.material-symbols-outlined');
+      const isSelected = icon.innerText.trim() === 'check';
+
+      if (isSelected) {
+        icon.innerText = 'add';
+        icon.className = "material-symbols-outlined text-base opacity-40";
+        btn.className = "challenge-pill px-3.5 py-2.5 rounded-xl bg-surface-container-low text-on-surface-variant flex items-center gap-2 text-label-md font-label-md transition-all";
+      } else {
+        icon.innerText = 'check';
+        icon.className = "material-symbols-outlined text-secondary text-base font-bold";
+        btn.className = "challenge-pill px-3.5 py-2.5 rounded-xl bg-primary-container/20 text-on-surface flex items-center gap-2 text-label-md font-label-md font-semibold transition-all";
+      }
+    }
+
+    // Final Action Simulation
+    function enterWorkspace() {
+      const btn = document.getElementById('btnEnterWorkspace');
+      btn.innerHTML = `
+        <span class="material-symbols-outlined animate-spin text-xl">progress_activity</span>
+        <span>Setting Up Your Workspace...</span>
+      `;
+      btn.classList.add('opacity-80', 'pointer-events-none');
+      
+      setTimeout(() => {
+        btn.innerHTML = `
+          <span class="material-symbols-outlined text-xl">check_circle</span>
+          <span>Welcome to PrepZen</span>
+        `;
+      }, 1200);
+    }
+  </script>
+</div></main></body></html><!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "surface-tint": "#c0c1ff", "on-surface-variant": "#c7c4d7", "on-tertiary-fixed-variant": "#653e00", "secondary-container": "#00a572", "tertiary-fixed-dim": "#ffb95f", "primary-fixed-dim": "#c0c1ff", "on-background": "#dae2fd", "on-secondary-container": "#00311f", "secondary-fixed": "#6ffbbe", "on-secondary": "#003824", "tertiary": "#ffb95f", "surface": "#0b1326", "primary-container": "#8083ff", "on-tertiary-fixed": "#2a1700", "on-surface": "#dae2fd", "secondary": "#4edea3", "background": "#0b1326", "on-error": "#690005", "on-primary-fixed": "#07006c", "outline": "#908fa0", "primary-fixed": "#e1e0ff", "error": "#ffb4ab", "surface-container": "#171f33", "surface-container-low": "#131b2e", "surface-dim": "#0b1326", "surface-variant": "#2d3449", "inverse-surface": "#dae2fd", "secondary-fixed-dim": "#4edea3", "on-primary": "#1000a9", "tertiary-fixed": "#ffddb8", "on-secondary-fixed": "#002113", "inverse-primary": "#494bd6", "on-tertiary-container": "#3e2400", "primary": "#c0c1ff", "surface-container-highest": "#2d3449", "on-error-container": "#ffdad6", "surface-container-high": "#222a3d", "inverse-on-surface": "#283044", "tertiary-container": "#ca8100", "on-tertiary": "#472a00", "on-secondary-fixed-variant": "#005236", "outline-variant": "#464554", "error-container": "#93000a", "surface-container-lowest": "#060e20", "surface-bright": "#31394d", "on-primary-fixed-variant": "#2f2ebe", "on-primary-container": "#0d0096" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-xl": "2.5rem", "gutter": "1rem", "space-md": "1rem", "space-lg": "1.5rem", "margin": "1rem", "margin-tablet": "2rem", "margin-desktop": "3rem", "gutter-desktop": "1.5rem", "space-sm": "0.5rem", "space-xs": "0.25rem" }, "fontFamily": { "headline-md": ["Plus Jakarta Sans"], "headline-sm": ["Plus Jakarta Sans"], "body-sm": ["Inter"], "headline-lg-mobile": ["Plus Jakarta Sans"], "label-md": ["Inter"], "label-lg": ["Inter"], "display-lg": ["Plus Jakarta Sans"], "display-lg-mobile": ["Plus Jakarta Sans"], "label-sm": ["Inter"], "body-lg": ["Inter"], "body-md": ["Inter"], "headline-lg": ["Plus Jakarta Sans"] }, "fontSize": { "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "headline-sm": ["18px", { "lineHeight": "26px", "fontWeight": "600" }], "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }], "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }], "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }], "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }], "display-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "500" }], "body-lg": ["16px", { "lineHeight": "26px", "fontWeight": "400" }], "body-md": ["14px", { "lineHeight": "22px", "fontWeight": "400" }], "headline-lg": ["30px", { "lineHeight": "38px", "letterSpacing": "-0.01em", "fontWeight": "700" }] } } } }</script></head><body class="bg-surface text-on-surface font-body-md text-body-md min-h-screen flex flex-col antialiased selection:bg-primary-container selection:text-on-primary-container"><main class="flex-1 flex flex-col relative w-full pt-safe pb-safe bg-surface"><div class="flex flex-col w-full text-on-surface">
+<!-- TOP APP STEPPER HEADER (Dynamic step tracker) -->
+<header class="w-full px-gutter py-space-sm flex flex-col gap-space-xs bg-surface-container-lowest transition-all duration-300" id="onboardingHeader">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<button aria-label="Previous step" class="w-8 h-8 rounded-full bg-surface-container-high text-on-surface flex items-center justify-center transition-transform active:scale-95 invisible" id="btnBack" type="button">
+<span class="material-symbols-outlined text-[18px]">arrow_back</span>
+</button>
+<span class="font-label-md text-label-md text-primary font-semibold tracking-wide uppercase" id="stepCounterLabel">
+          Step 1 of 7
+        </span>
+</div>
+<button class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface py-1 px-space-xs transition-colors" id="btnSkip" type="button">
+        Skip intro
+      </button>
+</div>
+<!-- 7-Segment Progress Track -->
+<div class="w-full grid grid-cols-7 gap-1.5 pt-1">
+<div class="h-1 rounded-full bg-primary transition-all duration-300" id="prog-1"></div>
+<div class="h-1 rounded-full bg-surface-container-high transition-all duration-300" id="prog-2"></div>
+<div class="h-1 rounded-full bg-surface-container-high transition-all duration-300" id="prog-3"></div>
+<div class="h-1 rounded-full bg-surface-container-high transition-all duration-300" id="prog-4"></div>
+<div class="h-1 rounded-full bg-surface-container-high transition-all duration-300" id="prog-5"></div>
+<div class="h-1 rounded-full bg-surface-container-high transition-all duration-300" id="prog-6"></div>
+<div class="h-1 rounded-full bg-surface-container-high transition-all duration-300" id="prog-7"></div>
+</div>
+</header>
+<!-- SCREEN VIEWPORT / SLIDES CONTAINER -->
+<div class="w-full flex-1 flex flex-col px-gutter pb-space-lg pt-space-sm overflow-hidden">
+<!-- STEP 1: WELCOME SCREEN -->
+<section class="step-card flex flex-col items-center text-center gap-space-md py-space-sm w-full" id="step-1">
+<!-- Ambient Visual Glow & Logo Container -->
+<div class="relative flex flex-col items-center justify-center pt-space-md pb-space-sm w-full">
+<div class="w-48 h-48 rounded-full bg-primary-container/20 blur-2xl absolute -top-4 pointer-events-none"></div>
+<div class="relative z-10 w-full max-w-[240px] px-space-sm py-space-xs rounded-xl bg-surface-container-low flex items-center justify-center shadow-lg">
+<img alt="PrepZen Brand Logo" class="h-10 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1UH8qwl5fZKtvuuRAZgIfIkjQ21NV-biL1hvx0ytaF5DQ4E54Q63PgldultxmSwZ2EGc66WOG_MUB-To-R6N95Kic1eEE8ZJsRvDKknzeRr7irmsU9wwRLQpAJ4s3QXPuU-ibSn0D0oVCqg3G5KxCiimGUAvX7cEp_2oMnW4ILTiBdpvKyP1hObOFsXSDay6gQvLYJvOMmx3lHjSY1WApdRic7WygwgDFzs4jzqoouejgwwbS2mTIQSiFg"/>
+</div>
+</div>
+<!-- Hero Visual Motif & Zen Badge -->
+<div class="w-full max-w-sm rounded-2xl bg-surface-container-low p-space-md flex flex-col items-center gap-space-sm shadow-md">
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-highest text-secondary text-label-sm font-label-sm">
+<span class="material-symbols-outlined text-sm text-secondary" style="font-variation-settings: 'FILL' 1;">verified</span>
+          Calm, Focused &amp; Systematic
+        </div>
+<h1 class="font-display-lg-mobile text-display-lg-mobile text-on-surface font-bold tracking-tight mt-1">
+          Welcome to <span class="text-primary-fixed-dim">PrepZen</span>
+</h1>
+<p class="font-headline-sm text-headline-sm text-secondary font-semibold">
+          Study smarter. Stay ahead.
+        </p>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xs leading-relaxed">
+          Build a preparation system around your goals, your stream, and your pace.
+        </p>
+<!-- Quick 3-Pillar Highlight Grid -->
+<div class="grid grid-cols-3 gap-2 w-full mt-2">
+<div class="flex flex-col items-center p-2 rounded-lg bg-surface-container text-center">
+<span class="material-symbols-outlined text-primary mb-1">psychology</span>
+<span class="font-label-sm text-label-sm text-on-surface">Zero Stress</span>
+</div>
+<div class="flex flex-col items-center p-2 rounded-lg bg-surface-container text-center">
+<span class="material-symbols-outlined text-secondary mb-1">timer</span>
+<span class="font-label-sm text-label-sm text-on-surface">Deep Focus</span>
+</div>
+<div class="flex flex-col items-center p-2 rounded-lg bg-surface-container text-center">
+<span class="material-symbols-outlined text-tertiary mb-1">track_changes</span>
+<span class="font-label-sm text-label-sm text-on-surface">High Yield</span>
+</div>
+</div>
+</div>
+<!-- Action Cluster -->
+<div class="w-full max-w-sm flex flex-col gap-3 mt-auto pt-space-sm">
+<button class="w-full py-3.5 px-space-md rounded-xl bg-primary text-on-primary font-label-lg text-label-lg font-semibold flex items-center justify-center gap-2 shadow-lg transition-transform active:scale-[0.98]" onclick="goToStep(2)" type="button">
+<span>Get Started</span>
+<span class="material-symbols-outlined text-lg">arrow_forward</span>
+</button>
+<button class="py-2 text-on-surface-variant hover:text-on-surface font-label-md text-label-md text-center transition-colors" type="button">
+          Already have an account? <span class="text-primary-fixed-dim font-semibold">Log in</span>
+</button>
+</div>
+</section>
+<!-- STEP 2: CLASS SELECTION -->
+<section class="step-card hidden flex-col gap-space-md w-full max-w-sm mx-auto" id="step-2">
+<div class="flex flex-col gap-1">
+<span class="text-label-sm font-label-sm text-primary uppercase font-bold tracking-wider">Foundation</span>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">What class are you in?</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">We customize chapter weights according to your current academic year.</p>
+</div>
+<!-- Class Toggles -->
+<div class="flex flex-col gap-3 mt-space-xs" id="classSelectorGroup">
+<!-- Class 11 -->
+<div class="cursor-pointer p-space-md rounded-xl bg-surface-container-low flex items-center justify-between transition-all active:scale-[0.99] shadow-sm" id="opt-class-11" onclick="selectClass('11')">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-on-surface font-headline-sm">
+              11
+            </div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface">Class 11</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Core concepts, foundational mock cadence</span>
+</div>
+</div>
+<div class="radio-indicator w-6 h-6 rounded-full bg-surface-container-highest flex items-center justify-center text-transparent">
+<span class="material-symbols-outlined text-sm font-bold">check</span>
+</div>
+</div>
+<!-- Class 12 (Default Selected) -->
+<div class="cursor-pointer p-space-md rounded-xl bg-primary-container/20 shadow-md flex items-center justify-between transition-all active:scale-[0.99]" id="opt-class-12" onclick="selectClass('12')">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-primary text-on-primary flex items-center justify-center font-headline-sm font-bold">
+              12
+            </div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Class 12</span>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-bold">Boards Active</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">High-stakes syllabus, rapid revisions</span>
+</div>
+</div>
+<div class="radio-indicator w-6 h-6 rounded-full bg-secondary text-on-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-sm font-bold">check</span>
+</div>
+</div>
+</div>
+<!-- Tactical Micro-Insight -->
+<div class="p-space-sm rounded-xl bg-surface-container-lowest flex items-start gap-2.5 mt-2">
+<span class="material-symbols-outlined text-tertiary text-lg">lightbulb</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          Class 12 schedules include integrated revision tracks for Grade 11 prerequisites.
+        </p>
+</div>
+<!-- Action Button -->
+<div class="w-full mt-auto pt-space-sm">
+<button class="w-full py-3.5 px-space-md rounded-xl bg-primary text-on-primary font-label-lg text-label-lg font-semibold flex items-center justify-center gap-2 shadow-lg transition-transform active:scale-[0.98]" onclick="goToStep(3)" type="button">
+<span>Continue to Stream</span>
+<span class="material-symbols-outlined text-lg">arrow_forward</span>
+</button>
+</div>
+</section>
+<!-- STEP 3: STREAM SELECTION -->
+<section class="step-card hidden flex-col gap-space-md w-full max-w-sm mx-auto" id="step-3">
+<div class="flex flex-col gap-1">
+<span class="text-label-sm font-label-sm text-primary uppercase font-bold tracking-wider">Academic Track</span>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">What are you studying?</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Choose your major subject combination.</p>
+</div>
+<!-- 4 Tactile Stream Cards -->
+<div class="flex flex-col gap-2.5" id="streamSelectorGroup">
+<!-- PCM (Selected) -->
+<div class="cursor-pointer p-space-sm rounded-xl bg-primary-container/20 shadow-md flex items-center justify-between transition-all active:scale-[0.99]" id="stream-PCM" onclick="selectStream('PCM')">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-xl">functions</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">PCM</span>
+<span class="px-1.5 py-0.2 rounded bg-tertiary-container/30 text-tertiary font-label-sm text-[10px] uppercase font-bold">Engineering</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Physics • Chemistry • Mathematics</span>
+</div>
+</div>
+<div class="stream-check w-6 h-6 rounded-full bg-secondary text-on-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-sm font-bold">check</span>
+</div>
+</div>
+<!-- PCB -->
+<div class="cursor-pointer p-space-sm rounded-xl bg-surface-container-low flex items-center justify-between transition-all active:scale-[0.99] shadow-sm" id="stream-PCB" onclick="selectStream('PCB')">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-xl">biotech</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">PCB</span>
+<span class="px-1.5 py-0.2 rounded bg-surface-container text-on-surface-variant font-label-sm text-[10px] uppercase">Medical</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Physics • Chemistry • Biology</span>
+</div>
+</div>
+<div class="stream-check w-6 h-6 rounded-full bg-surface-container-highest flex items-center justify-center text-transparent">
+<span class="material-symbols-outlined text-sm font-bold">check</span>
+</div>
+</div>
+<!-- PCMB -->
+<div class="cursor-pointer p-space-sm rounded-xl bg-surface-container-low flex items-center justify-between transition-all active:scale-[0.99] shadow-sm" id="stream-PCMB" onclick="selectStream('PCMB')">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-xl">hub</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">PCMB</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Physics • Chem • Math • Biology</span>
+</div>
+</div>
+<div class="stream-check w-6 h-6 rounded-full bg-surface-container-highest flex items-center justify-center text-transparent">
+<span class="material-symbols-outlined text-sm font-bold">check</span>
+</div>
+</div>
+<!-- Humanities -->
+<div class="cursor-pointer p-space-sm rounded-xl bg-surface-container-low flex items-center justify-between transition-all active:scale-[0.99] shadow-sm" id="stream-HUMANITIES" onclick="selectStream('HUMANITIES')">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-xl">menu_book</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">Humanities</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">History • Pol. Sci • Geo • Economics</span>
+</div>
+</div>
+<div class="stream-check w-6 h-6 rounded-full bg-surface-container-highest flex items-center justify-center text-transparent">
+<span class="material-symbols-outlined text-sm font-bold">check</span>
+</div>
+</div>
+</div>
+<!-- Action Button -->
+<div class="w-full mt-auto pt-space-sm">
+<button class="w-full py-3.5 px-space-md rounded-xl bg-primary text-on-primary font-label-lg text-label-lg font-semibold flex items-center justify-center gap-2 shadow-lg transition-transform active:scale-[0.98]" onclick="goToStep(4)" type="button">
+<span>Confirm Academic Stream</span>
+<span class="material-symbols-outlined text-lg">arrow_forward</span>
+</button>
+</div>
+</section>
+<!-- STEP 4: EXAM GOALS (MULTI-SELECT) -->
+<section class="step-card hidden flex-col gap-space-md w-full max-w-sm mx-auto" id="step-4">
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="text-label-sm font-label-sm text-primary uppercase font-bold tracking-wider">Target Milestones</span>
+<span class="text-label-sm font-label-sm text-secondary font-semibold">Multi-select enabled</span>
+</div>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">What are you preparing for?</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Select all that apply to tailor your question bank balance.</p>
+</div>
+<!-- Multi-select list -->
+<div class="flex flex-col gap-2.5" id="examGoalsList">
+<!-- 1. Board Exams (Selected) -->
+<div class="cursor-pointer p-3 rounded-xl bg-primary-container/20 shadow-sm flex items-center justify-between transition-all" id="goal-board" onclick="toggleGoal(this, 'board')">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-lg">school</span>
+</div>
+<div>
+<div class="font-label-lg text-label-lg text-on-surface font-semibold">Board Exams</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">CBSE / State Boards scoring focus</div>
+</div>
+</div>
+<div class="check-box w-5 h-5 rounded-md bg-secondary text-on-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-sm font-bold">check</span>
+</div>
+</div>
+<!-- 2. JEE Main (Selected) -->
+<div class="cursor-pointer p-3 rounded-xl bg-primary-container/20 shadow-sm flex items-center justify-between transition-all" id="goal-jee" onclick="toggleGoal(this, 'jee')">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-lg">rocket_launch</span>
+</div>
+<div>
+<div class="font-label-lg text-label-lg text-on-surface font-semibold">JEE Main</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Speed, numericals &amp; negative-marking drills</div>
+</div>
+</div>
+<div class="check-box w-5 h-5 rounded-md bg-secondary text-on-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-sm font-bold">check</span>
+</div>
+</div>
+<!-- 3. NEET (Unselected) -->
+<div class="cursor-pointer p-3 rounded-xl bg-surface-container-low shadow-sm flex items-center justify-between transition-all" id="goal-neet" onclick="toggleGoal(this, 'neet')">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-surface-container-highest flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-lg">medical_services</span>
+</div>
+<div>
+<div class="font-label-lg text-label-lg text-on-surface font-semibold">NEET</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">NCERT line-by-line bio &amp; speed physics</div>
+</div>
+</div>
+<div class="check-box w-5 h-5 rounded-md bg-surface-container-highest text-transparent flex items-center justify-center">
+<span class="material-symbols-outlined text-sm font-bold">check</span>
+</div>
+</div>
+<!-- 4. School Exams (Selected) -->
+<div class="cursor-pointer p-3 rounded-xl bg-primary-container/20 shadow-sm flex items-center justify-between transition-all" id="goal-school" onclick="toggleGoal(this, 'school')">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-lg">quiz</span>
+</div>
+<div>
+<div class="font-label-lg text-label-lg text-on-surface font-semibold">School Exams</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Weekly unit tests &amp; term assessments</div>
+</div>
+</div>
+<div class="check-box w-5 h-5 rounded-md bg-secondary text-on-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-sm font-bold">check</span>
+</div>
+</div>
+<!-- 5. Other Competitive Exams (Selected - Triggers Step 5) -->
+<div class="cursor-pointer p-3 rounded-xl bg-primary-container/20 shadow-sm flex items-center justify-between transition-all" id="goal-other" onclick="toggleGoal(this, 'other')">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-lg">military_tech</span>
+</div>
+<div>
+<div class="font-label-lg text-label-lg text-on-surface font-semibold">Other Competitive Exams</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">CUET, NDA, Olympiads, etc.</div>
+</div>
+</div>
+<div class="check-box w-5 h-5 rounded-md bg-secondary text-on-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-sm font-bold">check</span>
+</div>
+</div>
+</div>
+<!-- Action Button -->
+<div class="w-full mt-auto pt-space-sm">
+<button class="w-full py-3.5 px-space-md rounded-xl bg-primary text-on-primary font-label-lg text-label-lg font-semibold flex items-center justify-center gap-2 shadow-lg transition-transform active:scale-[0.98]" onclick="goToStep(5)" type="button">
+<span>Continue</span>
+<span class="material-symbols-outlined text-lg">arrow_forward</span>
+</button>
+</div>
+</section>
+<!-- STEP 5: CONDITIONAL OTHER COMPETITIVE EXAMS -->
+<section class="step-card hidden flex-col gap-space-md w-full max-w-sm mx-auto" id="step-5">
+<div class="flex flex-col gap-1">
+<div class="inline-flex items-center gap-1 text-label-sm font-label-sm text-tertiary">
+<span class="material-symbols-outlined text-sm">tune</span>
+<span>Target Alignment</span>
+</div>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">Which competitive exams?</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Select additional exam patterns to load specialized mock syllabi.</p>
+</div>
+<!-- 2-Column Grid for Competitive Exam Badges -->
+<div class="grid grid-cols-2 gap-2.5" id="subExamsGrid">
+<!-- UPSC -->
+<div class="cursor-pointer p-3 rounded-xl bg-surface-container-low shadow-sm flex items-center justify-between" onclick="toggleSubExam(this, 'UPSC')">
+<span class="font-label-md text-label-md text-on-surface">UPSC / Civil</span>
+<div class="w-5 h-5 rounded-md bg-surface-container-highest text-transparent flex items-center justify-center">
+<span class="material-symbols-outlined text-xs">check</span>
+</div>
+</div>
+<!-- CUET (Selected) -->
+<div class="cursor-pointer p-3 rounded-xl bg-primary-container/20 shadow-sm flex items-center justify-between" onclick="toggleSubExam(this, 'CUET')">
+<span class="font-label-md text-label-md text-on-surface font-semibold">CUET</span>
+<div class="w-5 h-5 rounded-md bg-secondary text-on-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-xs font-bold">check</span>
+</div>
+</div>
+<!-- CLAT -->
+<div class="cursor-pointer p-3 rounded-xl bg-surface-container-low shadow-sm flex items-center justify-between" onclick="toggleSubExam(this, 'CLAT')">
+<span class="font-label-md text-label-md text-on-surface">CLAT</span>
+<div class="w-5 h-5 rounded-md bg-surface-container-highest text-transparent flex items-center justify-center">
+<span class="material-symbols-outlined text-xs">check</span>
+</div>
+</div>
+<!-- NDA -->
+<div class="cursor-pointer p-3 rounded-xl bg-surface-container-low shadow-sm flex items-center justify-between" onclick="toggleSubExam(this, 'NDA')">
+<span class="font-label-md text-label-md text-on-surface">NDA</span>
+<div class="w-5 h-5 rounded-md bg-surface-container-highest text-transparent flex items-center justify-center">
+<span class="material-symbols-outlined text-xs">check</span>
+</div>
+</div>
+<!-- NIFT -->
+<div class="cursor-pointer p-3 rounded-xl bg-surface-container-low shadow-sm flex items-center justify-between" onclick="toggleSubExam(this, 'NIFT')">
+<span class="font-label-md text-label-md text-on-surface">NIFT</span>
+<div class="w-5 h-5 rounded-md bg-surface-container-highest text-transparent flex items-center justify-center">
+<span class="material-symbols-outlined text-xs">check</span>
+</div>
+</div>
+<!-- Other -->
+<div class="cursor-pointer p-3 rounded-xl bg-surface-container-low shadow-sm flex items-center justify-between" onclick="toggleSubExam(this, 'Other')">
+<span class="font-label-md text-label-md text-on-surface">Other National</span>
+<div class="w-5 h-5 rounded-md bg-surface-container-highest text-transparent flex items-center justify-center">
+<span class="material-symbols-outlined text-xs">check</span>
+</div>
+</div>
+</div>
+<!-- Live Sync Status Banner -->
+<div class="p-3 rounded-xl bg-surface-container flex items-center gap-3 mt-1">
+<div class="w-8 h-8 rounded-full bg-secondary-container/40 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-base">sync_saved_locally</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-semibold">1 Extra Exam Synced</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">CUET domain test banks prioritized</span>
+</div>
+</div>
+<!-- Action Button -->
+<div class="w-full mt-auto pt-space-sm">
+<button class="w-full py-3.5 px-space-md rounded-xl bg-primary text-on-primary font-label-lg text-label-lg font-semibold flex items-center justify-center gap-2 shadow-lg transition-transform active:scale-[0.98]" onclick="goToStep(6)" type="button">
+<span>Continue to Study Habits</span>
+<span class="material-symbols-outlined text-lg">arrow_forward</span>
+</button>
+</div>
+</section>
+<!-- STEP 6: STUDY CHALLENGES (MULTI-SELECT BADGES) -->
+<section class="step-card hidden flex-col gap-space-md w-full max-w-sm mx-auto" id="step-6">
+<div class="flex flex-col gap-1">
+<span class="text-label-sm font-label-sm text-primary uppercase font-bold tracking-wider">Mindset &amp; Bottlenecks</span>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">What usually makes studying difficult?</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">We adjust timer intervals, flashcard prompts, and revision streaks to match.</p>
+</div>
+<!-- Badges Cloud / Tappable Tiles -->
+<div class="flex flex-wrap gap-2" id="challengesCloud">
+<!-- 1. Time Management (Selected) -->
+<button class="challenge-pill px-3.5 py-2.5 rounded-xl bg-primary-container/20 text-on-surface flex items-center gap-2 text-label-md font-label-md font-semibold transition-all" onclick="toggleChallenge(this)" type="button">
+<span class="material-symbols-outlined text-secondary text-base font-bold">check</span>
+<span>Time Management</span>
+</button>
+<!-- 2. Revision (Selected) -->
+<button class="challenge-pill px-3.5 py-2.5 rounded-xl bg-primary-container/20 text-on-surface flex items-center gap-2 text-label-md font-label-md font-semibold transition-all" onclick="toggleChallenge(this)" type="button">
+<span class="material-symbols-outlined text-secondary text-base font-bold">check</span>
+<span>Revision &amp; Retention</span>
+</button>
+<!-- 3. Procrastination -->
+<button class="challenge-pill px-3.5 py-2.5 rounded-xl bg-surface-container-low text-on-surface-variant flex items-center gap-2 text-label-md font-label-md transition-all" onclick="toggleChallenge(this)" type="button">
+<span class="material-symbols-outlined text-base opacity-40">add</span>
+<span>Procrastination</span>
+</button>
+<!-- 4. Staying Consistent -->
+<button class="challenge-pill px-3.5 py-2.5 rounded-xl bg-surface-container-low text-on-surface-variant flex items-center gap-2 text-label-md font-label-md transition-all" onclick="toggleChallenge(this)" type="button">
+<span class="material-symbols-outlined text-base opacity-40">add</span>
+<span>Staying Consistent</span>
+</button>
+<!-- 5. Understanding Difficult Topics -->
+<button class="challenge-pill px-3.5 py-2.5 rounded-xl bg-surface-container-low text-on-surface-variant flex items-center gap-2 text-label-md font-label-md transition-all" onclick="toggleChallenge(this)" type="button">
+<span class="material-symbols-outlined text-base opacity-40">add</span>
+<span>Understanding Difficult Topics</span>
+</button>
+<!-- 6. Solving Numericals -->
+<button class="challenge-pill px-3.5 py-2.5 rounded-xl bg-surface-container-low text-on-surface-variant flex items-center gap-2 text-label-md font-label-md transition-all" onclick="toggleChallenge(this)" type="button">
+<span class="material-symbols-outlined text-base opacity-40">add</span>
+<span>Solving Numericals</span>
+</button>
+<!-- 7. Exam Anxiety -->
+<button class="challenge-pill px-3.5 py-2.5 rounded-xl bg-surface-container-low text-on-surface-variant flex items-center gap-2 text-label-md font-label-md transition-all" onclick="toggleChallenge(this)" type="button">
+<span class="material-symbols-outlined text-base opacity-40">add</span>
+<span>Exam Anxiety</span>
+</button>
+</div>
+<!-- Empathetic Note Card -->
+<div class="p-space-sm rounded-xl bg-surface-container flex items-center gap-2.5 mt-2">
+<span class="material-symbols-outlined text-secondary text-lg">spa</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">PrepZen introduces low-pressure micro-sessions when focus drops.</span>
+</div>
+<!-- Action Button -->
+<div class="w-full mt-auto pt-space-sm">
+<button class="w-full py-3.5 px-space-md rounded-xl bg-primary text-on-primary font-label-lg text-label-lg font-semibold flex items-center justify-center gap-2 shadow-lg transition-transform active:scale-[0.98]" onclick="goToStep(7)" type="button">
+<span>Build My System</span>
+<span class="material-symbols-outlined text-lg">magic_button</span>
+</button>
+</div>
+</section>
+<!-- STEP 7: PERSONALIZATION SUMMARY CARD (SPACE READY) -->
+<section class="step-card hidden flex-col gap-space-md w-full max-w-sm mx-auto" id="step-7">
+<!-- Zen Celebration Motif -->
+<div class="flex flex-col items-center text-center gap-1 pt-1">
+<div class="w-12 h-12 rounded-2xl bg-secondary-container/30 text-secondary flex items-center justify-center mb-1 shadow-md">
+<span class="material-symbols-outlined text-2xl font-bold" style="font-variation-settings: 'FILL' 1;">task_alt</span>
+</div>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface font-bold">
+          Your PrepZen space is ready.
+        </h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xs">
+          We’ll use this to personalize your preparation.
+        </p>
+</div>
+<!-- Architectural Summary Bento Card -->
+<div class="w-full rounded-2xl bg-surface-container-low p-space-md flex flex-col gap-space-sm shadow-xl relative overflow-hidden">
+<div class="w-32 h-32 rounded-full bg-primary/10 blur-xl absolute -right-6 -bottom-6 pointer-events-none"></div>
+<!-- Academic Tier Header -->
+<div class="flex items-center justify-between pb-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-xl">account_circle</span>
+<span class="font-label-lg text-label-lg font-bold text-on-surface">Student Profile</span>
+</div>
+<span class="px-3 py-1 rounded-full bg-primary-container/30 text-primary-fixed font-label-sm text-label-sm font-bold">
+            Class 12 • PCM
+          </span>
+</div>
+<!-- Goals Breakdown -->
+<div class="p-3 rounded-xl bg-surface-container flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase font-semibold">Active Targets</span>
+<span class="font-label-sm text-label-sm text-secondary font-bold">3 Focus Exams</span>
+</div>
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2 py-0.5 rounded-lg bg-surface-container-highest text-on-surface font-label-sm text-label-sm flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+              Board Exams
+            </span>
+<span class="px-2 py-0.5 rounded-lg bg-surface-container-highest text-on-surface font-label-sm text-label-sm flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+              JEE Main
+            </span>
+<span class="px-2 py-0.5 rounded-lg bg-surface-container-highest text-on-surface font-label-sm text-label-sm flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+              School Exams
+            </span>
+<span class="px-2 py-0.5 rounded-lg bg-surface-container-highest text-on-surface font-label-sm text-label-sm">
+              + CUET
+            </span>
+</div>
+</div>
+<!-- Focus Challenges Pill Group -->
+<div class="p-3 rounded-xl bg-surface-container flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase font-semibold">Focus Challenges</span>
+<span class="material-symbols-outlined text-tertiary text-base">tune</span>
+</div>
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2.5 py-1 rounded-full bg-tertiary-container/30 text-tertiary font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">schedule</span>
+              Time Management
+            </span>
+<span class="px-2.5 py-1 rounded-full bg-secondary-container/30 text-secondary font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">replay</span>
+              Revision
+            </span>
+</div>
+</div>
+<!-- Confidence Index Bar -->
+<div class="flex flex-col gap-1 pt-1">
+<div class="flex justify-between font-label-sm text-label-sm">
+<span class="text-on-surface-variant">Personalized Engine Ready</span>
+<span class="text-secondary font-semibold">100% Calibrated</span>
+</div>
+<div class="w-full h-1.5 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full w-full bg-secondary rounded-full"></div>
+</div>
+</div>
+</div>
+<!-- Primary Enter App CTA -->
+<div class="w-full mt-auto pt-space-sm">
+<button class="w-full py-4 px-space-md rounded-xl bg-secondary text-on-secondary font-label-lg text-label-lg font-bold flex items-center justify-center gap-2 shadow-xl hover:opacity-95 transition-transform active:scale-[0.98]" id="btnEnterWorkspace" onclick="enterWorkspace()" type="button">
+<span>Enter PrepZen</span>
+<span class="material-symbols-outlined text-xl font-bold">arrow_forward</span>
+</button>
+</div>
+</section>
+</div>
+<!-- Interactive Client-side Script -->
+<script>
+    let currentStep = 1;
+    const totalSteps = 7;
+
+    function updateStepperUI(step) {
+      document.getElementById('stepCounterLabel').innerText = `Step ${step} of ${totalSteps}`;
+      
+      const backBtn = document.getElementById('btnBack');
+      if (step === 1) {
+        backBtn.classList.add('invisible');
+      } else {
+        backBtn.classList.remove('invisible');
+      }
+
+      for (let i = 1; i <= totalSteps; i++) {
+        const seg = document.getElementById(`prog-${i}`);
+        if (seg) {
+          if (i <= step) {
+            seg.className = "h-1 rounded-full bg-primary transition-all duration-300";
+          } else {
+            seg.className = "h-1 rounded-full bg-surface-container-high transition-all duration-300";
+          }
+        }
+      }
+    }
+
+    function goToStep(step) {
+      if (step < 1 || step > totalSteps) return;
+
+      const currentCard = document.getElementById(`step-${currentStep}`);
+      if (currentCard) {
+        currentCard.classList.add('hidden');
+        currentCard.classList.remove('flex');
+      }
+
+      const nextCard = document.getElementById(`step-${step}`);
+      if (nextCard) {
+        nextCard.classList.remove('hidden');
+        nextCard.classList.add('flex');
+      }
+
+      currentStep = step;
+      updateStepperUI(currentStep);
+    }
+
+    document.getElementById('btnBack').addEventListener('click', () => {
+      if (currentStep > 1) {
+        goToStep(currentStep - 1);
+      }
+    });
+
+    document.getElementById('btnSkip').addEventListener('click', () => {
+      goToStep(7);
+    });
+
+    // Step 2 Selection Logic
+    function selectClass(grade) {
+      const card11 = document.getElementById('opt-class-11');
+      const card12 = document.getElementById('opt-class-12');
+      const r11 = card11.querySelector('.radio-indicator');
+      const r12 = card12.querySelector('.radio-indicator');
+
+      if (grade === '11') {
+        card11.className = "cursor-pointer p-space-md rounded-xl bg-primary-container/20 shadow-md flex items-center justify-between transition-all active:scale-[0.99]";
+        r11.className = "radio-indicator w-6 h-6 rounded-full bg-secondary text-on-secondary flex items-center justify-center";
+
+        card12.className = "cursor-pointer p-space-md rounded-xl bg-surface-container-low flex items-center justify-between transition-all active:scale-[0.99] shadow-sm";
+        r12.className = "radio-indicator w-6 h-6 rounded-full bg-surface-container-highest flex items-center justify-center text-transparent";
+      } else {
+        card12.className = "cursor-pointer p-space-md rounded-xl bg-primary-container/20 shadow-md flex items-center justify-between transition-all active:scale-[0.99]";
+        r12.className = "radio-indicator w-6 h-6 rounded-full bg-secondary text-on-secondary flex items-center justify-center";
+
+        card11.className = "cursor-pointer p-space-md rounded-xl bg-surface-container-low flex items-center justify-between transition-all active:scale-[0.99] shadow-sm";
+        r11.className = "radio-indicator w-6 h-6 rounded-full bg-surface-container-highest flex items-center justify-center text-transparent";
+      }
+    }
+
+    // Step 3 Selection Logic
+    function selectStream(stream) {
+      const streams = ['PCM', 'PCB', 'PCMB', 'HUMANITIES'];
+      streams.forEach(s => {
+        const el = document.getElementById(`stream-${s}`);
+        const check = el.querySelector('.stream-check');
+        if (s === stream) {
+          el.className = "cursor-pointer p-space-sm rounded-xl bg-primary-container/20 shadow-md flex items-center justify-between transition-all active:scale-[0.99]";
+          check.className = "stream-check w-6 h-6 rounded-full bg-secondary text-on-secondary flex items-center justify-center";
+        } else {
+          el.className = "cursor-pointer p-space-sm rounded-xl bg-surface-container-low flex items-center justify-between transition-all active:scale-[0.99] shadow-sm";
+          check.className = "stream-check w-6 h-6 rounded-full bg-surface-container-highest flex items-center justify-center text-transparent";
+        }
+      });
+    }
+
+    // Step 4 Multi-Select Goal Toggle
+    function toggleGoal(el, key) {
+      const box = el.querySelector('.check-box');
+      const isSelected = box.classList.contains('bg-secondary');
+      
+      if (isSelected) {
+        box.classList.remove('bg-secondary', 'text-on-secondary');
+        box.classList.add('bg-surface-container-highest', 'text-transparent');
+        el.classList.remove('bg-primary-container/20');
+        el.classList.add('bg-surface-container-low');
+      } else {
+        box.classList.add('bg-secondary', 'text-on-secondary');
+        box.classList.remove('bg-surface-container-highest', 'text-transparent');
+        el.classList.add('bg-primary-container/20');
+        el.classList.remove('bg-surface-container-low');
+      }
+    }
+
+    // Step 5 Sub-Exam Toggle
+    function toggleSubExam(el, name) {
+      const box = el.querySelector('div');
+      const isSelected = box.classList.contains('bg-secondary');
+
+      if (isSelected) {
+        box.className = "w-5 h-5 rounded-md bg-surface-container-highest text-transparent flex items-center justify-center";
+        el.className = "cursor-pointer p-3 rounded-xl bg-surface-container-low shadow-sm flex items-center justify-between";
+      } else {
+        box.className = "w-5 h-5 rounded-md bg-secondary text-on-secondary flex items-center justify-center";
+        el.className = "cursor-pointer p-3 rounded-xl bg-primary-container/20 shadow-sm flex items-center justify-between font-semibold";
+      }
+    }
+
+    // Step 6 Multi-Select Challenge Badges
+    function toggleChallenge(btn) {
+      const icon = btn.querySelector('.material-symbols-outlined');
+      const isSelected = icon.innerText.trim() === 'check';
+
+      if (isSelected) {
+        icon.innerText = 'add';
+        icon.className = "material-symbols-outlined text-base opacity-40";
+        btn.className = "challenge-pill px-3.5 py-2.5 rounded-xl bg-surface-container-low text-on-surface-variant flex items-center gap-2 text-label-md font-label-md transition-all";
+      } else {
+        icon.innerText = 'check';
+        icon.className = "material-symbols-outlined text-secondary text-base font-bold";
+        btn.className = "challenge-pill px-3.5 py-2.5 rounded-xl bg-primary-container/20 text-on-surface flex items-center gap-2 text-label-md font-label-md font-semibold transition-all";
+      }
+    }
+
+    // Final Action Simulation
+    function enterWorkspace() {
+      const btn = document.getElementById('btnEnterWorkspace');
+      btn.innerHTML = `
+        <span class="material-symbols-outlined animate-spin text-xl">progress_activity</span>
+        <span>Setting Up Your Workspace...</span>
+      `;
+      btn.classList.add('opacity-80', 'pointer-events-none');
+      
+      setTimeout(() => {
+        btn.innerHTML = `
+          <span class="material-symbols-outlined text-xl">check_circle</span>
+          <span>Welcome to PrepZen</span>
+        `;
+      }, 1200);
+    }
+  </script>
+</div></main></body></html>
