@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "surface-tint": "#c0c1ff", "on-surface-variant": "#c7c4d7", "on-tertiary-fixed-variant": "#653e00", "secondary-container": "#00a572", "tertiary-fixed-dim": "#ffb95f", "primary-fixed-dim": "#c0c1ff", "on-background": "#dae2fd", "on-secondary-container": "#00311f", "secondary-fixed": "#6ffbbe", "on-secondary": "#003824", "tertiary": "#ffb95f", "surface": "#0b1326", "primary-container": "#8083ff", "on-tertiary-fixed": "#2a1700", "on-surface": "#dae2fd", "secondary": "#4edea3", "background": "#0b1326", "on-error": "#690005", "on-primary-fixed": "#07006c", "outline": "#908fa0", "primary-fixed": "#e1e0ff", "error": "#ffb4ab", "surface-container": "#171f33", "surface-container-low": "#131b2e", "surface-dim": "#0b1326", "surface-variant": "#2d3449", "inverse-surface": "#dae2fd", "secondary-fixed-dim": "#4edea3", "on-primary": "#1000a9", "tertiary-fixed": "#ffddb8", "on-secondary-fixed": "#002113", "inverse-primary": "#494bd6", "on-tertiary-container": "#3e2400", "primary": "#c0c1ff", "surface-container-highest": "#2d3449", "on-error-container": "#ffdad6", "surface-container-high": "#222a3d", "inverse-on-surface": "#283044", "tertiary-container": "#ca8100", "on-tertiary": "#472a00", "on-secondary-fixed-variant": "#005236", "outline-variant": "#464554", "error-container": "#93000a", "surface-container-lowest": "#060e20", "surface-bright": "#31394d", "on-primary-fixed-variant": "#2f2ebe", "on-primary-container": "#0d0096" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-xl": "2.5rem", "gutter": "1rem", "space-md": "1rem", "space-lg": "1.5rem", "margin": "1rem", "margin-tablet": "2rem", "margin-desktop": "3rem", "gutter-desktop": "1.5rem", "space-sm": "0.5rem", "space-xs": "0.25rem" }, "fontFamily": { "headline-md": ["Plus Jakarta Sans"], "headline-sm": ["Plus Jakarta Sans"], "body-sm": ["Inter"], "headline-lg-mobile": ["Plus Jakarta Sans"], "label-md": ["Inter"], "label-lg": ["Inter"], "display-lg": ["Plus Jakarta Sans"], "display-lg-mobile": ["Plus Jakarta Sans"], "label-sm": ["Inter"], "body-lg": ["Inter"], "body-md": ["Inter"], "headline-lg": ["Plus Jakarta Sans"] }, "fontSize": { "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "headline-sm": ["18px", { "lineHeight": "26px", "fontWeight": "600" }], "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }], "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }], "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }], "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }], "display-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "500" }], "body-lg": ["16px", { "lineHeight": "26px", "fontWeight": "400" }], "body-md": ["14px", { "lineHeight": "22px", "fontWeight": "400" }], "headline-lg": ["30px", { "lineHeight": "38px", "letterSpacing": "-0.01em", "fontWeight": "700" }] } } } }</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface text-on-surface font-body-md text-body-md min-h-screen flex flex-col antialiased selection:bg-primary-container selection:text-on-primary-container"><header class="fixed top-0 inset-x-0 z-50 bg-surface/85 backdrop-blur-xl shadow-[0_4px_20px_rgba(0,0,0,0.35)] pt-safe"><div class="h-16 px-gutter flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-sm"><img alt="PrepZen Brand Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1UH8qwl5fZKtvuuRAZgIfIkjQ21NV-biL1hvx0ytaF5DQ4E54Q63PgldultxmSwZ2EGc66WOG_MUB-To-R6N95Kic1eEE8ZJsRvDKknzeRr7irmsU9wwRLQpAJ4s3QXPuU-ibSn0D0oVCqg3G5KxCiimGUAvX7cEp_2oMnW4ILTiBdpvKyP1hObOFsXSDay6gQvLYJvOMmx3lHjSY1WApdRic7WygwgDFzs4jzqoouejgwwbS2mTIQSiFg"/><div class="flex flex-col"><div class="flex items-center gap-space-xs"><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight leading-none">PrepZen</span><span class="px-2 py-0.5 rounded-full bg-surface-container-high text-secondary font-label-sm text-label-sm leading-none">Class 12 • PCM</span></div><span class="font-label-sm text-label-sm text-on-surface-variant line-clamp-1 leading-tight mt-0.5">Study Library</span></div></div><div class="flex items-center gap-space-xs"><button class="h-11 min-w-[44px] px-3 rounded-full bg-surface-container hover:bg-surface-container-high flex items-center justify-center gap-1.5 text-primary transition-colors"><span class="material-symbols-outlined text-[18px]">smart_toy</span><span class="font-label-sm text-label-sm hidden min-[370px]:inline text-on-surface">Buddy</span></button><button aria-label="Streak and Notifications" class="h-11 w-11 rounded-full bg-surface-container hover:bg-surface-container-high flex items-center justify-center text-tertiary transition-colors relative"><span class="material-symbols-outlined text-[20px]">local_fire_department</span><span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-secondary"></span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex-1 flex flex-col relative w-full pt-16 pb-20 bg-surface"><div class="flex flex-col w-full pb-12">
+<!-- Subtle Atmospheric Gradient Backdrop -->
+<div class="px-gutter pt-space-md flex flex-col gap-space-md">
+<!-- Hero Header / Query Intro -->
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-widest flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span>
+          Deep Focus Mode • Active Session
+        </span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px] text-tertiary">bolt</span>
+          High-Yield
+        </span>
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface tracking-tight">
+        What do you want to study?
+      </h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+        Architected notes, derived relations, and high-frequency PYQ weightage.
+      </p>
+</div>
+<!-- Search Input Bar -->
+<div class="relative w-full">
+<div class="flex items-center w-full h-12 bg-surface-container-low rounded-xl px-3.5 shadow-sm transition-all focus-within:bg-surface-container focus-within:shadow-[0_0_0_1px_rgba(192,193,255,0.4)]">
+<span class="material-symbols-outlined text-primary text-[20px] shrink-0">search</span>
+<input class="w-full bg-transparent border-none outline-none px-2.5 font-body-sm text-body-sm text-on-surface placeholder:text-outline font-normal" id="notesSearchInput" placeholder="Search chapters, topics, formulas or PYQs..." type="text"/>
+<button class="min-h-[32px] min-w-[32px] flex items-center justify-center rounded-full text-outline hover:text-on-surface transition-colors" id="clearSearchBtn" title="Clear search" type="button">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+</div>
+<!-- Category Filter Chips -->
+<div class="flex items-center gap-2 overflow-x-auto py-1 scrollbar-none -mx-gutter px-gutter">
+<button class="filter-chip shrink-0 px-3.5 py-1.5 rounded-full bg-primary text-on-primary font-label-md text-label-md flex items-center gap-1.5 shadow-sm">
+<span>All Subjects</span>
+</button>
+<button class="filter-chip shrink-0 px-3.5 py-1.5 rounded-full bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-md text-label-md flex items-center gap-1.5 transition-colors">
+<span class="material-symbols-outlined text-[15px]">auto_stories</span>
+<span>Smart Notes</span>
+</button>
+<button class="filter-chip shrink-0 px-3.5 py-1.5 rounded-full bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-md text-label-md flex items-center gap-1.5 transition-colors">
+<span class="material-symbols-outlined text-[15px]">checklist</span>
+<span>Syllabus</span>
+</button>
+<button class="filter-chip shrink-0 px-3.5 py-1.5 rounded-full bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-md text-label-md flex items-center gap-1.5 transition-colors">
+<span class="material-symbols-outlined text-[15px]">history_edu</span>
+<span>PYQs</span>
+</button>
+<button class="filter-chip shrink-0 px-3.5 py-1.5 rounded-full bg-tertiary-container/30 text-tertiary font-label-md text-label-md flex items-center gap-1.5 transition-colors">
+<span class="material-symbols-outlined text-[15px] text-tertiary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span>Must Know</span>
+</button>
+<button class="filter-chip shrink-0 px-3.5 py-1.5 rounded-full bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-md text-label-md flex items-center gap-1.5 transition-colors">
+<span class="material-symbols-outlined text-[15px]">style</span>
+<span>Flashcards</span>
+</button>
+</div>
+<!-- Curriculum Stream Scope Indicator -->
+<div class="flex items-center justify-between p-3 rounded-xl bg-surface-container-lowest">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px]">verified</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">
+          Curriculum Scope: <strong class="text-on-surface font-semibold">CBSE Class 12 &amp; JEE Main PCM</strong>
+</span>
+</div>
+<span class="font-label-sm text-label-sm text-primary cursor-pointer hover:underline">Customize</span>
+</div>
+<!-- PCM Stream Subject Trio Cards -->
+<div class="grid grid-cols-1 gap-2.5">
+<!-- Physics Tile -->
+<div class="subject-card p-3.5 rounded-xl bg-surface-container-low hover:bg-surface-container transition-all cursor-pointer shadow-sm relative overflow-hidden flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary text-[22px]">cyclone</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<h3 class="font-headline-sm text-headline-sm text-on-surface leading-tight">Physics</h3>
+<span class="px-1.5 py-0.5 rounded text-[10px] bg-primary/20 text-primary font-label-sm">82% Covered</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+              14 Chapters • 120 Smart Notes • 850 PYQs
+            </p>
+</div>
+</div>
+<div class="flex items-center gap-1 shrink-0 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</div>
+</div>
+<!-- Chemistry Tile (Active / Selected state demo) -->
+<div class="subject-card p-3.5 rounded-xl bg-surface-container hover:bg-surface-container-high transition-all cursor-pointer shadow-md relative overflow-hidden flex items-center justify-between">
+<div class="absolute left-0 inset-y-0 w-1 bg-tertiary"></div>
+<div class="flex items-center gap-3 pl-1.5">
+<div class="w-10 h-10 rounded-xl bg-tertiary/15 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-tertiary text-[22px]">science</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<h3 class="font-headline-sm text-headline-sm text-on-surface leading-tight">Chemistry</h3>
+<span class="px-1.5 py-0.5 rounded text-[10px] bg-tertiary/20 text-tertiary font-label-sm">Currently Active</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+              10 Chapters • 98 Smart Notes • 720 PYQs
+            </p>
+</div>
+</div>
+<div class="flex items-center gap-1 shrink-0 text-tertiary">
+<span class="material-symbols-outlined text-[18px]">expand_more</span>
+</div>
+</div>
+<!-- Mathematics Tile -->
+<div class="subject-card p-3.5 rounded-xl bg-surface-container-low hover:bg-surface-container transition-all cursor-pointer shadow-sm relative overflow-hidden flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-secondary/10 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-secondary text-[22px]">functions</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<h3 class="font-headline-sm text-headline-sm text-on-surface leading-tight">Mathematics</h3>
+<span class="px-1.5 py-0.5 rounded text-[10px] bg-secondary/20 text-secondary font-label-sm">64% Covered</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+              13 Chapters • 115 Smart Notes • 940 PYQs
+            </p>
+</div>
+</div>
+<div class="flex items-center gap-1 shrink-0 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</div>
+</div>
+</div>
+<!-- Active Chapter Hero Section: Electrochemistry -->
+<div class="mt-space-sm p-4 rounded-xl bg-surface-container flex flex-col gap-3 shadow-md relative">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-tertiary font-label-sm text-label-sm uppercase tracking-wider">
+            Chemistry • Chapter 3
+          </span>
+<span class="px-2 py-0.5 rounded-full bg-secondary/10 text-secondary font-label-sm text-label-sm">
+            High Weightage (8.5%)
+          </span>
+</div>
+<button class="text-on-surface-variant hover:text-primary transition-colors" title="Bookmark Chapter">
+<span class="material-symbols-outlined text-[20px]">bookmark</span>
+</button>
+</div>
+<div class="flex flex-col">
+<h2 class="font-headline-md text-headline-md text-on-surface tracking-tight">Electrochemistry</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+          Standard potentials, Nernst formulations, Kohlrausch conductivity, and fuel cell kinetics.
+        </p>
+</div>
+<!-- Quick Chapter Metric Pill Strip -->
+<div class="grid grid-cols-3 gap-2 pt-1">
+<div class="bg-surface-container-low p-2 rounded-lg flex flex-col items-center text-center">
+<span class="font-headline-sm text-headline-sm text-primary">12</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Must-Knows</span>
+</div>
+<div class="bg-surface-container-low p-2 rounded-lg flex flex-col items-center text-center">
+<span class="font-headline-sm text-headline-sm text-secondary">94%</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Accuracy</span>
+</div>
+<div class="bg-surface-container-low p-2 rounded-lg flex flex-col items-center text-center">
+<span class="font-headline-sm text-headline-sm text-tertiary">42</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">JEE PYQs</span>
+</div>
+</div>
+<!-- Chapter Tabs -->
+<div class="flex items-center gap-1.5 overflow-x-auto scrollbar-none pt-2 -mx-2 px-2">
+<button class="chapter-tab px-3 py-1.5 rounded-lg bg-surface-container-high text-on-surface-variant font-label-md text-label-md shrink-0">Overview</button>
+<button class="chapter-tab px-3 py-1.5 rounded-lg bg-tertiary text-on-tertiary font-label-md text-label-md shrink-0 flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+          ⭐ MUST KNOW
+        </button>
+<button class="chapter-tab px-3 py-1.5 rounded-lg bg-surface-container-high text-on-surface-variant font-label-md text-label-md shrink-0">Key Concepts</button>
+<button class="chapter-tab px-3 py-1.5 rounded-lg bg-surface-container-high text-on-surface-variant font-label-md text-label-md shrink-0">Formulas</button>
+<button class="chapter-tab px-3 py-1.5 rounded-lg bg-surface-container-high text-on-surface-variant font-label-md text-label-md shrink-0">PYQs</button>
+<button class="chapter-tab px-3 py-1.5 rounded-lg bg-surface-container-high text-on-surface-variant font-label-md text-label-md shrink-0">Flashcards</button>
+</div>
+</div>
+<!-- SIGNATURE: ⭐ MUST KNOW PREPZEN SYSTEM HIGHLIGHTS -->
+<div class="flex flex-col gap-3 mt-space-xs">
+<div class="flex items-center justify-between px-1">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-tertiary-container/40 flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px] text-tertiary" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Signature Must-Know Cards</h3>
+</div>
+<span class="font-label-sm text-label-sm text-tertiary">3 Priority Items</span>
+</div>
+<!-- Must Know Card 1: Nernst Equation -->
+<div class="p-4 rounded-xl bg-surface-container-high shadow-lg flex flex-col gap-3 relative overflow-hidden">
+<div class="flex items-center justify-between">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-tertiary-container/30 text-tertiary font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[13px]" style="font-variation-settings: 'FILL' 1;">grade</span>
+            ⭐ MUST KNOW • JEE CORE
+          </div>
+<span class="font-label-sm text-label-sm text-secondary flex items-center gap-1 bg-surface-container px-2 py-0.5 rounded-md">
+<span class="material-symbols-outlined text-[13px]">insights</span>
+            Freq: 9.8 / 10
+          </span>
+</div>
+<div class="flex flex-col gap-1">
+<h4 class="font-headline-sm text-headline-sm text-on-surface">
+            Nernst Equation for Half-Cell Potential
+          </h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Connects electrochemical cell potential to reactant/product quotient concentrations at variable temperatures.
+          </p>
+</div>
+<!-- Formula Display Box (Architectural high-contrast serif/mono typography feel) -->
+<div class="p-3 rounded-lg bg-surface-container-lowest flex flex-col items-center justify-center gap-1 shadow-inner">
+<div class="font-headline-md text-headline-md text-primary tracking-wide text-center">
+            E = E° - <span class="text-tertiary">(2.303 RT / nF)</span> log₁₀ Q
+          </div>
+<div class="font-label-sm text-label-sm text-on-surface-variant text-center">
+            At T = 298 K: <span class="text-on-surface font-semibold">E = E° - (0.0591 / n) log₁₀ Q</span>
+</div>
+</div>
+<!-- Exam Occurrence Badge Ribbon -->
+<div class="p-2.5 rounded-lg bg-surface-container flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-tertiary shrink-0">history_edu</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">
+            Tested in <strong class="text-on-surface">7 JEE Main papers</strong> &amp; <strong class="text-on-surface">5 CBSE Board Exams</strong> (Last 6 Years).
+          </span>
+</div>
+<!-- Mini Interactive Derivation Step Breakdown -->
+<div class="flex flex-col gap-2 pt-1">
+<button class="flex items-center justify-between p-2 rounded-lg bg-surface-container-low hover:bg-surface-container text-left transition-colors" id="toggleDerivationBtn">
+<span class="font-label-md text-label-md text-primary flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">account_tree</span>
+              Show 2-Step Gibbs Energy Derivation
+            </span>
+<span class="material-symbols-outlined text-primary text-[18px] transition-transform" id="derivationChevron">expand_more</span>
+</button>
+<div class="hidden flex flex-col gap-2 p-3 rounded-lg bg-surface-container-low text-on-surface-variant font-body-sm text-body-sm" id="derivationContent">
+<div class="flex items-start gap-2">
+<span class="w-5 h-5 rounded-full bg-primary/20 text-primary font-label-sm text-label-sm flex items-center justify-center shrink-0 mt-0.5">1</span>
+<span>Thermodynamic link: <code class="text-on-surface px-1 bg-surface-container-highest rounded">ΔG = ΔG° + RT ln Q</code> where Q is reaction quotient.</span>
+</div>
+<div class="flex items-start gap-2">
+<span class="w-5 h-5 rounded-full bg-primary/20 text-primary font-label-sm text-label-sm flex items-center justify-center shrink-0 mt-0.5">2</span>
+<span>Electrical relation: Substitute <code class="text-on-surface px-1 bg-surface-container-highest rounded">ΔG = -nFE</code> and <code class="text-on-surface px-1 bg-surface-container-highest rounded">ΔG° = -nFE°</code>. Divide both sides by <code class="text-on-surface px-1 bg-surface-container-highest rounded">-nF</code> to yield the final form.</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Must Know Card 2: Faraday's Laws -->
+<div class="p-4 rounded-xl bg-surface-container-high shadow-md flex flex-col gap-3 relative overflow-hidden">
+<div class="flex items-center justify-between">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-tertiary-container/30 text-tertiary font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[13px]" style="font-variation-settings: 'FILL' 1;">grade</span>
+            ⭐ MUST KNOW • QUANTITATIVE LAWS
+          </div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Class 12 Boards Core</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">
+          Faraday's First &amp; Second Laws of Electrolysis
+        </h4>
+<div class="grid grid-cols-1 gap-2">
+<div class="p-3 rounded-lg bg-surface-container-lowest flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-primary font-semibold">1st Law (Mass Deposited)</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono">m = Z · I · t</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Mass <code class="text-on-surface">m</code> liberated is directly proportional to passed charge <code class="text-on-surface">Q</code> (<code class="text-on-surface">Z = M / (n · 96500)</code>).
+            </p>
+</div>
+<div class="p-3 rounded-lg bg-surface-container-lowest flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-secondary font-semibold">2nd Law (Equivalent Series)</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono">w₁ / w₂ = E₁ / E₂</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              When the identical quantity of charge traverses several electrolytes, masses are proportional to their chemical equivalents.
+            </p>
+</div>
+</div>
+</div>
+<!-- Must Know Card 3: Kohlrausch Law -->
+<div class="p-4 rounded-xl bg-surface-container-high shadow-md flex flex-col gap-3 relative overflow-hidden">
+<div class="flex items-center justify-between">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-tertiary-container/30 text-tertiary font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[13px]" style="font-variation-settings: 'FILL' 1;">grade</span>
+            ⭐ MUST KNOW • IONIC MIGRATION
+          </div>
+<span class="font-label-sm text-label-sm text-primary">High Accuracy Yield</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">
+          Kohlrausch Law of Independent Migration
+        </h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          At infinite dilution, each ion makes a definite contribution toward equivalent conductance irrespective of partner co-ion.
+        </p>
+<div class="p-3 rounded-lg bg-surface-container-lowest text-center">
+<div class="font-headline-md text-headline-md text-secondary tracking-wide">
+            Λ°<sub>m</sub> = ν₊ λ°₊ + ν₋ λ°₋
+          </div>
+<span class="font-label-sm text-label-sm text-on-surface-variant block mt-1">
+            Crucial application: Calculating limiting molar conductivity for weak electrolytes like <code class="text-on-surface">CH₃COOH</code>.
+          </span>
+</div>
+</div>
+</div>
+<!-- Interactive Revision Aids -->
+<div class="flex flex-col gap-3 mt-space-sm">
+<h3 class="font-headline-sm text-headline-sm text-on-surface px-1 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">psychology</span>
+        Interactive Revision Aids
+      </h3>
+<!-- Important Exceptions & Pitfalls Traps Card -->
+<div class="p-4 rounded-xl bg-surface-container-high shadow-sm flex flex-col gap-2.5 relative">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-error text-[18px]">warning</span>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Common JEE Traps &amp; Conventions</h4>
+</div>
+<div class="space-y-2 font-body-sm text-body-sm text-on-surface-variant">
+<div class="p-2.5 rounded-lg bg-surface-container-low flex items-start gap-2">
+<span class="material-symbols-outlined text-error text-[16px] shrink-0 mt-0.5">priority_high</span>
+<span>
+<strong class="text-on-surface">Sign Convention Alert:</strong> IUPAC requires all electrode potentials written as <em>Standard Reduction Potentials</em> (SRP). If given <code class="text-on-surface px-1 bg-surface-container rounded">E°(Zn/Zn²⁺) = +0.76 V</code>, flip it to <code class="text-on-surface px-1 bg-surface-container rounded">E°(Zn²⁺/Zn) = -0.76 V</code> before substituting in <code class="text-on-surface">E°cell = E°cathode - E°anode</code>!
+            </span>
+</div>
+<div class="p-2.5 rounded-lg bg-surface-container-low flex items-start gap-2">
+<span class="material-symbols-outlined text-tertiary text-[16px] shrink-0 mt-0.5">lightbulb</span>
+<span>
+<strong class="text-on-surface">SHE Standard:</strong> Standard Hydrogen Electrode potential is assumed exactly <code class="text-on-surface">0.00 V</code> at all temperatures by international definition, not experiment.
+            </span>
+</div>
+</div>
+</div>
+<!-- High-Yield One-Tap PYQ Snippet -->
+<div class="p-4 rounded-xl bg-surface-container-low shadow-sm flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<span class="px-2 py-0.5 rounded-md bg-primary-container/20 text-primary font-label-sm text-label-sm font-semibold">
+            JEE Main 2023 Shift 2 • 4 Marks
+          </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">90 sec timed</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface">
+          For the cell reaction <code class="text-primary font-semibold">2Fe³⁺(aq) + 2I⁻(aq) → 2Fe²⁺(aq) + I₂(s)</code>, the value of <code class="text-tertiary font-semibold">E°cell = 0.236 V</code> at 298 K. The standard Gibbs energy (<code class="text-on-surface">ΔrG°</code>) is:
+        </p>
+<!-- Collapsible Answer Reveal Toggle -->
+<div class="flex flex-col gap-2">
+<button class="w-full py-2.5 px-4 rounded-lg bg-surface-container-high hover:bg-surface-bright text-on-surface font-label-md text-label-md flex items-center justify-center gap-2 transition-all" id="revealPyqAnswerBtn">
+<span class="material-symbols-outlined text-secondary text-[18px]">visibility</span>
+<span>Reveal Step-by-Step Solution</span>
+</button>
+<div class="hidden p-3 rounded-lg bg-surface-container-highest flex flex-col gap-2 transition-all" id="pyqAnswerPanel">
+<div class="flex items-center justify-between border-b pb-2 border-outline-variant/30">
+<span class="font-label-md text-label-md text-secondary font-semibold">Correct Value: -45.55 kJ/mol</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Formula: -nFE°</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+              1. Determine electrons exchanged: <code class="text-on-surface font-mono">n = 2</code>.<br/>
+              2. Apply relation: <code class="text-on-surface font-mono">ΔrG° = -n F E°cell</code><br/>
+              3. Calculation: <code class="text-on-surface font-mono">-(2) × 96500 C × 0.236 V = -45548 J/mol ≈ -45.55 kJ/mol</code>.
+            </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Sticky Bottom Revision Callout / Quick Launcher -->
+<div class="mt-space-sm p-4 rounded-xl bg-surface-container-high shadow-lg flex items-center justify-between gap-3">
+<div class="flex items-center gap-3 min-w-0">
+<div class="w-10 h-10 rounded-xl bg-tertiary/20 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-tertiary text-[22px]">style</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-headline-sm text-on-surface truncate">Electrochemistry Deck</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">18 active cards ready for spaced recall</span>
+</div>
+</div>
+<button class="px-4 py-2.5 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md shrink-0 flex items-center gap-1.5 shadow-md active:scale-95 transition-all" id="launchFlashcardsBtn">
+<span>Start Flashcards</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<script>
+  // PrepZen Micro-Interactions Controller
+  (function initPrepZenStudyLibrary() {
+    // 1. Search Bar Clear Action
+    const searchInput = document.getElementById('notesSearchInput');
+    const clearBtn = document.getElementById('clearSearchBtn');
+
+    if (searchInput && clearBtn) {
+      clearBtn.addEventListener('click', () => {
+        searchInput.value = '';
+        searchInput.focus();
+      });
+    }
+
+    // 2. Derivation Breakdown Accordion
+    const toggleDerivationBtn = document.getElementById('toggleDerivationBtn');
+    const derivationContent = document.getElementById('derivationContent');
+    const derivationChevron = document.getElementById('derivationChevron');
+
+    if (toggleDerivationBtn && derivationContent) {
+      toggleDerivationBtn.addEventListener('click', () => {
+        const isHidden = derivationContent.classList.contains('hidden');
+        if (isHidden) {
+          derivationContent.classList.remove('hidden');
+          derivationChevron.style.transform = 'rotate(180deg)';
+        } else {
+          derivationContent.classList.add('hidden');
+          derivationChevron.style.transform = 'rotate(0deg)';
+        }
+      });
+    }
+
+    // 3. PYQ Solution Reveal Action
+    const revealPyqBtn = document.getElementById('revealPyqAnswerBtn');
+    const pyqPanel = document.getElementById('pyqAnswerPanel');
+
+    if (revealPyqBtn && pyqPanel) {
+      revealPyqBtn.addEventListener('click', () => {
+        const isHidden = pyqPanel.classList.contains('hidden');
+        if (isHidden) {
+          pyqPanel.classList.remove('hidden');
+          revealPyqBtn.innerHTML = `
+            <span class="material-symbols-outlined text-secondary text-[18px]">visibility_off</span>
+            <span>Hide Solution</span>
+          `;
+        } else {
+          pyqPanel.classList.add('hidden');
+          revealPyqBtn.innerHTML = `
+            <span class="material-symbols-outlined text-secondary text-[18px]">visibility</span>
+            <span>Reveal Step-by-Step Solution</span>
+          `;
+        }
+      });
+    }
+
+    // 4. Filter Chips Selection Toggle
+    const filterChips = document.querySelectorAll('.filter-chip');
+    filterChips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        filterChips.forEach(c => {
+          c.classList.remove('bg-primary', 'text-on-primary');
+          c.classList.add('bg-surface-container-high', 'text-on-surface-variant');
+        });
+        chip.classList.remove('bg-surface-container-high', 'text-on-surface-variant');
+        chip.classList.add('bg-primary', 'text-on-primary');
+      });
+    });
+
+    // 5. Flashcards Launch Feedback
+    const flashcardsBtn = document.getElementById('launchFlashcardsBtn');
+    if (flashcardsBtn) {
+      flashcardsBtn.addEventListener('click', () => {
+        const originalText = flashcardsBtn.innerHTML;
+        flashcardsBtn.innerHTML = `
+          <span class="material-symbols-outlined text-[16px] animate-spin">refresh</span>
+          <span>Loading 18 Cards...</span>
+        `;
+        setTimeout(() => {
+          flashcardsBtn.innerHTML = `
+            <span class="material-symbols-outlined text-[16px]">check</span>
+            <span>Deck Ready</span>
+          `;
+          setTimeout(() => {
+            flashcardsBtn.innerHTML = originalText;
+          }, 1500);
+        }, 600);
+      });
+    }
+  })();
+</script></main><nav class="fixed bottom-0 inset-x-0 z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_-4px_20px_rgba(0,0,0,0.4)]" data-active-classes="text-primary font-semibold"><div class="flex items-center justify-around h-16 px-space-xs"><a class="min-h-[44px] min-w-[44px] flex-1 flex flex-col items-center justify-center gap-0.5 text-on-surface-variant hover:text-on-surface transition-colors" data-path="home-dashboard" href="#"><span class="material-symbols-outlined text-[22px]">dashboard</span><span class="font-label-sm text-label-sm">Home</span></a><a aria-current="page" class="min-h-[44px] min-w-[44px] flex-1 flex flex-col items-center justify-center gap-0.5 transition-colors text-primary font-semibold" data-path="study-library" href="#"><span class="material-symbols-outlined text-[22px]">menu_book</span><span class="font-label-sm text-label-sm">Study</span></a><a class="min-h-[44px] min-w-[44px] flex-1 flex flex-col items-center justify-center gap-0.5 text-on-surface-variant hover:text-on-surface transition-colors" data-path="practice-tests" href="#"><span class="material-symbols-outlined text-[22px]">ads_click</span><span class="font-label-sm text-label-sm">Practice</span></a><a class="min-h-[44px] min-w-[44px] flex-1 flex flex-col items-center justify-center gap-0.5 text-on-surface-variant hover:text-on-surface transition-colors" data-path="planner-schedule" href="#"><span class="material-symbols-outlined text-[22px]">calendar_today</span><span class="font-label-sm text-label-sm">Planner</span></a><a class="min-h-[44px] min-w-[44px] flex-1 flex flex-col items-center justify-center gap-0.5 text-on-surface-variant hover:text-on-surface transition-colors" data-path="progress-analytics" href="#"><span class="material-symbols-outlined text-[22px]">trending_up</span><span class="font-label-sm text-label-sm">Progress</span></a></div></nav></body></html>
